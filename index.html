@@ -14,11 +14,11 @@
    a swipeable row of frosted experience cards, hover-to-reveal skills, and projects drawn as tiny pipelines on a slanted teal band.
    Deliberately light-only. */
 :root {
-  --bg: #F5F5DC;
-  --surface: #FCFCF3;
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
   --ink: #1E3333;
   --muted: #5E6E7F;
-  --faint: #DCDDC8;
+  --faint: #DCE1E6;
   --teal: #2F4F4F;
   --mint: #87CEEB;
   --apricot: #87CEEB;
@@ -57,7 +57,7 @@ a { color: inherit; }
 
 /* hero */
 .hero { min-height: min(100vh, 820px); display: grid; place-items: center; position: relative; overflow: hidden; padding-block: 96px 120px; }
-.ring { position: absolute; width: min(680px, 92vw); aspect-ratio: 1; max-width: 100%; border-radius: 50%; border: 1px solid #E4E4CB; left: 50%; top: 50%; transform: translate(-50%, -54%); pointer-events: none; }
+.ring { position: absolute; width: min(680px, 92vw); aspect-ratio: 1; max-width: 100%; border-radius: 50%; border: 1px solid #E9ECEF; left: 50%; top: 50%; transform: translate(-50%, -54%); pointer-events: none; }
 .ring.r2 { width: min(480px, 70vw); }
 .hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
 .avatar {
@@ -190,7 +190,7 @@ section.sec { padding-block: clamp(72px, 10vw, 128px); }
 
 /* off the clock */
 .otc { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 0 48px; max-width: 900px; margin-inline: auto; }
-.otc div { display: grid; grid-template-columns: 1fr; gap: 2px; padding-block: 18px; border-bottom: 1px solid #E2E2C8; }
+.otc div { display: grid; grid-template-columns: 1fr; gap: 2px; padding-block: 18px; border-bottom: 1px solid #E6E9EC; }
 .otc b { font-weight: 600; }
 .otc span { color: var(--muted); font-size: .95rem; }
 
