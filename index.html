@@ -194,18 +194,6 @@ section.sec { padding-block: clamp(72px, 10vw, 128px); }
 .otc b { font-weight: 600; }
 .otc span { color: var(--muted); font-size: .95rem; }
 
-.hobbies { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto clamp(56px, 8vw, 80px); }
-.hobby { background: var(--surface); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 18px rgba(17,18,20,.04); transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
-.hobby:nth-child(odd):hover { transform: rotate(-1.5deg) translateY(-4px); }
-.hobby:nth-child(even):hover { transform: rotate(1.5deg) translateY(-4px); }
-.hobby .ic { width: 42px; height: 42px; border-radius: 50%; background: var(--mist); color: var(--teal); display: grid; place-items: center; }
-.hobby .ic svg { width: 21px; height: 21px; }
-.hobby:hover .ic { background: var(--apricot); color: #fff; }
-.hobby b { font-weight: 600; font-size: 1.05rem; }
-.hobby span:last-child { color: var(--muted); font-size: .95rem; line-height: 1.55; }
-@media (max-width: 760px) { .hobbies { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 460px) { .hobbies { grid-template-columns: 1fr; } }
-.otc-title { text-align: center; font-weight: 600; font-size: 1.15rem; margin-bottom: 8px; }
 
 /* contact */
 .contact { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px; }
@@ -255,7 +243,7 @@ footer { padding-block: 48px; text-align: center; color: #9CA3AF; font-size: .85
     </nav>
   </div>
   <div class="doodles">
-    <a class="doodle" id="blog-link" href="#blog" style="--x:278px; --y:-195px" aria-label="Read my blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span class="tip">read my blog</span></a>
+    <a class="doodle" id="blog-link" href="#about" style="--x:278px; --y:-195px" aria-label="Read my blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span class="tip">read my blog</span></a>
   </div>
   <a class="down" href="#about" aria-label="Scroll to About"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
 </header>
@@ -439,16 +427,7 @@ footer { padding-block: 48px; text-align: center; color: #9CA3AF; font-size: .85
 
   <section class="sec" id="beyond">
     <div class="wrap">
-      <div class="sec-head"><h2 class="eyebrow">Off the clock</h2><p class="hand">the non-résumé stuff</p></div>
-      <div class="hobbies">
-        <div class="hobby"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 2.6a2 2 0 0 1 2.9 2.9L11 15.8 8.2 13z"/><path d="M7 14c-2 0-3.5 1.5-3.5 3.5 0 1.5-1 2.5-2 2.5 1 1 2.5 1.5 4 1.5 2.5 0 4.5-2 4.5-4.5z"/></svg></span><b>Art</b><span>Sketching, painting, and designing anything that needs a little color.</span></div>
-        <div class="hobby"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 2-3 6 7z"/><circle cx="17" cy="6" r="2"/></svg></span><b>Outdoors</b><span>Give me a trail and decent weather and I'm gone.</span></div>
-        <div class="hobby" id="blog"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><b>Writing</b><span>I write to think: essays, notes, the occasional story.</span></div>
-        <div class="hobby"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span><b>Reading</b><span>There is always a book in my bag.</span></div>
-        <div class="hobby"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6a9 9 0 0 1 0 12.8M18.4 5.6a9 9 0 0 0 0 12.8"/></svg></span><b>Sports</b><span>Sporty since school. I even trained a model to tell cricket shots apart.</span></div>
-        <div class="hobby"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13v8"/><path d="M12 13c-3 0-5-3-5-6.5S9 2 12 2s5 1 5 4.5S15 13 12 13z"/><path d="M12 13c-1.2 0-2-3-2-6s.8-5 2-5 2 2 2 5-.8 6-2 6z"/></svg></span><b>Baking</b><span>Basically experiments you get to eat.</span></div>
-      </div>
-      <h3 class="otc-title">Community &amp; recognition</h3>
+      <div class="sec-head"><h2 class="eyebrow">Community</h2></div>
       <div class="otc">
         <div><b>Chair, CSWomen</b><span>Graduate women in CS at UMass Amherst</span></div>
         <div><b>National speaker, Girl Up</b><span>Women in STEM and mentorship circles</span></div>
