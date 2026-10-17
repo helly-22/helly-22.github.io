@@ -3,214 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>[hidden]{display:none!important} img{max-width:100%}</style>
+<style>[hidden]{display:none!important} body{margin:0} img{max-width:100%}</style>
 <title>Helly Dhamesha</title>
 <meta name="description" content="Helly Dhamesha: AI engineer and MS CS student at UMass Amherst building LLM systems that are useful, measurable and fair.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600&display=swap">
 <style>
-/* Layout: slim top bar + side rails framing a centered hero over a drifting node graph;
-   then two-column "About", a bento of skill cards, numbered project cards, a three-column timeline, and a closing "Let's connect".
-   Palette: dark slate #2F4F4F, slate #778899, beige #F5F5DC, light blue #ADD8E6, sky blue #87CEEB. Light only. */
+/* Layout: airy single column on soft off-white. Centered typewriter hero, letter-spaced section labels,
+   a swipeable row of frosted experience cards, hover-to-reveal skills, and projects drawn as tiny pipelines on a slanted teal band.
+   Deliberately light-only. */
 :root {
-  --paper: #F5F5DC;
-  --paper-deep: #E9E9C9;
+  --bg: #F5F5DC;
   --surface: #FCFCF3;
-  --line: #DCDDC8;
   --ink: #1E3333;
   --muted: #5E6E7F;
-  --slate: #778899;
-  --accent: #2F4F4F;
-  --accent-soft: #DDE6E6;
-  --blue: #ADD8E6;
-  --blue-soft: #E7F3F7;
-  --sky: #87CEEB;
-  --sky-soft: #E1F2FA;
-
-  --sans: "Manrope", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
-  --hand: "Caveat", "Segoe Print", cursive;
-  --gutter: clamp(16px, 5vw, 56px);
-  --bar: 64px;
+  --faint: #DCDDC8;
+  --teal: #2F4F4F;
+  --mint: #87CEEB;
+  --apricot: #87CEEB;
+  --mist: #E1F2FA;
+  --band: #ADD8E6;
+  --font: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --gutter: clamp(16px, 5vw, 48px);
   color-scheme: light;
 }
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--bar) + 16px); }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 1rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4, p { margin: 0; }
-h1, h2, h3 { text-wrap: balance; }
+button, input, textarea, select { font-family: inherit; }
+h1, h2, h3, h4 { text-wrap: balance; }
 a { color: inherit; }
-button { font-family: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-.wrap { max-width: 1120px; margin-inline: auto; padding-inline: var(--gutter); }
-.mono { font-family: var(--mono); }
+:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; border-radius: 6px; }
+.wrap { max-width: 1040px; margin-inline: auto; padding-inline: var(--gutter); }
 
-/* top bar */
-.bar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px);
-  background: color-mix(in srgb, var(--paper) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line); }
-.bar .wrap { height: var(--bar); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; max-width: none; }
-.brand { font-weight: 800; letter-spacing: -.01em; text-decoration: none; font-size: 1.05rem; }
-.brand span { color: var(--accent); }
-.links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
-.links a { text-decoration: none; font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
-.links a:hover { color: var(--accent); }
-.bar-mail { justify-self: end; font-family: var(--mono); font-size: .78rem; color: var(--muted); text-decoration: none; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); transition: border-color .2s, color .2s; }
-.bar-mail:hover { border-color: var(--accent); color: var(--accent); }
-@media (max-width: 860px) { .links { display: none; } .bar .wrap { grid-template-columns: 1fr auto; } }
-@media (max-width: 420px) { .bar-mail { display: none; } }
+.u { text-decoration: underline wavy; text-decoration-color: var(--apricot); text-decoration-skip-ink: none; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.eyebrow { text-transform: uppercase; color: #5B616B; font-weight: 500; letter-spacing: .45em; margin-right: -.45em; text-align: center; font-size: clamp(1.05rem, .9rem + .6vw, 1.5rem); }
+.sec-head .eyebrow::after, .contact .eyebrow::after {
+  content: ""; display: block; width: 64px; height: 12px; margin: 12px auto 0; transform: translateX(-.22em);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 12'%3E%3Cpath d='M2 7c6-6 10 4 16-1s10-5 15 0 10 5 15 0 9-4 14 0' fill='none' stroke='%2387CEEB' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.hand { font-family: var(--hand); font-size: 1.45rem; color: var(--teal); line-height: 1.2; }
+.sub { text-transform: uppercase; letter-spacing: .22em; font-size: .78rem; color: var(--muted); text-align: center; }
 
-/* side rails */
-.rail { position: fixed; bottom: 0; z-index: 15; display: flex; flex-direction: column; align-items: center; gap: 18px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); }
-.rail::after { content: ""; width: 1px; height: 72px; background: var(--line); }
-.rail.left { left: 28px; }
-.rail.right { right: 28px; }
-.rail a { color: var(--muted); display: grid; place-items: center; position: relative; transition: color .2s, transform .2s; }
-.rail a:hover, .rail a:focus-visible { color: var(--accent); transform: translateY(-2px); }
-.rail svg { width: 19px; height: 19px; }
-.rail .tip { position: absolute; left: calc(100% + 10px); top: 50%; transform: translateY(-50%) rotate(-3deg); white-space: nowrap; font-family: var(--hand); font-size: 1.3rem; color: var(--accent); opacity: 0; pointer-events: none; transition: opacity .2s; }
-.rail a:hover .tip, .rail a:focus-visible .tip { opacity: 1; }
-.scroll-word { writing-mode: vertical-rl; font-family: var(--mono); font-size: .68rem; letter-spacing: .3em; color: var(--muted); }
-.progress { width: 2px; height: 120px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.progress i { display: block; width: 100%; height: 100%; background: var(--accent); transform-origin: top; transform: scaleY(0); }
-.rail.right::after { display: none; }
-@media (max-width: 1100px) { .rail { display: none; } }
+/* socials */
+.socials { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 22px); left: 24px; display: flex; gap: 18px; z-index: 5; }
+.socials a, .socials button { color: #778899; display: grid; place-items: center; transition: color .2s, transform .2s; background: none; border: 0; padding: 0; cursor: pointer; }
+.socials a:hover, .socials button:hover { color: var(--teal); transform: translateY(-2px); }
+.socials svg { width: 22px; height: 22px; }
 
 /* hero */
-.hero { position: relative; min-height: min(100vh, 860px); display: grid; place-items: center; padding-block: calc(var(--bar) + 64px) 96px; overflow: hidden; }
-#net { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 50%, var(--paper) 25%, transparent 75%); pointer-events: none; }
-.hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
-.status { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; color: var(--ink); background: var(--sky-soft); border: 1px solid var(--sky); padding: 6px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; }
-.status i { width: 7px; height: 7px; border-radius: 50%; background: #2F4F4F; }
-.hero h1 { font-size: clamp(2.6rem, 1rem + 7vw, 6.2rem); font-weight: 800; letter-spacing: -.035em; line-height: .95; text-transform: uppercase; }
-.hero h1 span { color: var(--accent); }
-.role { font-family: var(--mono); font-size: clamp(.72rem, .6rem + .4vw, .9rem); letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
-.role b { color: var(--accent); font-weight: 500; }
-@media (max-width: 760px) { .role { letter-spacing: .14em; } }
-.typed-line { font-family: var(--mono); font-size: clamp(1rem, .9rem + .5vw, 1.25rem); color: var(--ink); min-height: 1.6em; }
-.typed-line .prompt { color: var(--accent); margin-right: .5ch; }
-.caret { display: inline-block; width: .6ch; height: 1.1em; background: var(--accent); vertical-align: -.15em; margin-left: 2px; animation: blink 1.1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
-.cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 6px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; padding: 13px 22px; border-radius: 999px; border: 1px solid var(--accent); transition: transform .2s, background .2s, color .2s; cursor: pointer; }
-.btn.fill { background: var(--accent); color: var(--paper); }
-.btn.ghost { background: var(--surface); color: var(--accent); }
-.btn:hover { transform: translateY(-2px); }
-.btn.ghost:hover { background: var(--accent-soft); }
-.scroll-cue { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 1; font-family: var(--mono); font-size: .68rem; letter-spacing: .3em; color: var(--muted); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.scroll-cue::after { content: ""; width: 1px; height: 28px; background: linear-gradient(var(--accent), transparent); animation: drip 2s ease-in-out infinite; }
-@keyframes drip { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+.hero { min-height: min(100vh, 820px); display: grid; place-items: center; position: relative; overflow: hidden; padding-block: 96px 120px; }
+.ring { position: absolute; width: min(680px, 92vw); aspect-ratio: 1; max-width: 100%; border-radius: 50%; border: 1px solid #E4E4CB; left: 50%; top: 50%; transform: translate(-50%, -54%); pointer-events: none; }
+.ring.r2 { width: min(480px, 70vw); }
+.hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
+.avatar {
+  width: 120px; height: 120px; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle at 30% 25%, #F3F9FB, var(--mist) 60%, var(--band));
+  color: var(--teal); font-weight: 300; font-size: 2.5rem; letter-spacing: .04em;
+  box-shadow: 0 10px 30px rgba(47,79,79,.12);
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.avatar:hover { transform: rotate(-6deg) scale(1.05); }
+.hero h1 { font-size: clamp(2.4rem, 1.4rem + 4.5vw, 3.9rem); font-weight: 600; line-height: 1.15; min-height: 1.15em; letter-spacing: -.01em; }
+.cursor { color: var(--apricot); font-weight: 300; animation: caret 1.1s steps(1) infinite; margin-left: 4px; }
+.tagline { font-size: clamp(1.05rem, .95rem + .4vw, 1.25rem); color: #4B5058; line-height: 1.6; max-width: 32em; margin-top: -6px; }
+@keyframes caret { 50% { opacity: 0; } }
+.hero nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 36px; margin: 0; padding: 0; }
+.hero nav a { text-decoration: none; text-transform: uppercase; letter-spacing: .14em; font-size: .82rem; color: #4B5058; padding-block: 4px; background: linear-gradient(var(--mint), var(--mint)) no-repeat 0 100% / 0 2px; transition: background-size .3s, color .2s; }
+.hero nav a:hover { background-size: 100% 2px; color: var(--ink); }
+/* hobby doodles around the ring */
+.doodles { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; position: relative; z-index: 2; margin-top: 28px; }
+.doodle {
+  width: 46px; height: 46px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; position: relative;
+  background: var(--surface); color: var(--teal); display: grid; place-items: center;
+  box-shadow: 0 4px 16px rgba(47,79,79,.12); transition: transform .35s cubic-bezier(.34,1.56,.64,1), background .2s, color .2s;
+}
+.doodle svg { width: 22px; height: 22px; }
+.doodle:hover, .doodle:focus-visible { transform: scale(1.15) rotate(-8deg); background: var(--teal); color: #fff; }
+.doodle .tip {
+  position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%) rotate(-3deg);
+  white-space: nowrap; font-family: var(--hand); font-size: 1.3rem; color: var(--teal); pointer-events: none;
+}
+.doodle { text-decoration: none; }
+@media (min-width: 900px) {
+  .hero { min-height: 840px; }
+  .doodles { position: absolute; inset: 0; margin: 0; display: block; pointer-events: none; }
+  .doodle { position: absolute; left: calc(50% + var(--x) - 23px); top: calc(50% + var(--y) - 27px - 23px); pointer-events: auto; }
+}
+.down { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; opacity: .85; transition: opacity .2s, transform .2s; }
+.down:hover { opacity: 1; transform: translateX(-50%) translateY(3px); }
+.down svg { width: 20px; height: 20px; }
 
-/* section scaffolding */
-section.sec { padding-block: clamp(72px, 10vw, 120px); }
-.title { font-size: clamp(2.2rem, 1.4rem + 3vw, 3.6rem); font-weight: 300; letter-spacing: -.03em; line-height: 1; margin-bottom: clamp(36px, 5vw, 56px); display: flex; align-items: baseline; gap: .28em; flex-wrap: wrap; }
-.title b { font-weight: 800; }
-.title .idx { font-family: var(--mono); font-size: .8rem; letter-spacing: .1em; color: var(--accent); font-weight: 500; align-self: flex-start; margin-top: .4em; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+/* sections */
+section.sec { padding-block: clamp(72px, 10vw, 128px); }
+.sec-head { display: flex; flex-direction: column; gap: 14px; align-items: center; margin-bottom: clamp(40px, 6vw, 64px); }
 
 /* about */
-.about { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 4vw, 48px); align-items: start; }
-.about-main { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
-.me { display: flex; align-items: center; gap: 16px; }
-.avatar { width: 72px; height: 72px; border-radius: 18px; flex: none; display: grid; place-items: center; font-weight: 800; font-size: 1.4rem; color: var(--accent);
-  background: linear-gradient(135deg, var(--blue-soft), var(--sky-soft)); border: 1px solid var(--line); }
-.me .mono { font-size: .75rem; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
-.me b { display: block; font-size: 1.15rem; }
-.about-main p { font-size: 1.08rem; color: #3D5A5A; max-width: 38em; }
-.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
-.stat { padding: 18px; display: flex; flex-direction: column; gap: 4px; }
-.stat:nth-child(1) { background: var(--blue-soft); border-color: var(--blue); }
-.stat:nth-child(2) { background: var(--sky-soft); border-color: var(--sky); }
-.stat:nth-child(3) { background: var(--accent-soft); border-color: var(--slate); }
-.stat b { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.stat span { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.about-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.panel { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-.label { font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-.now { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.now li { display: grid; grid-template-columns: 10px 1fr; gap: 12px; font-size: .95rem; }
-.now li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; margin-top: 8px; background: var(--sky); }
-.now li:nth-child(2)::before { background: var(--blue); }
-.now li:nth-child(3)::before { background: var(--accent); }
-.edu { display: flex; flex-direction: column; gap: 12px; }
-.edu div { display: flex; flex-direction: column; line-height: 1.4; }
-.edu b { font-weight: 700; }
-.edu span { color: var(--muted); font-size: .92rem; }
-@media (max-width: 880px) { .about { grid-template-columns: 1fr; } }
-@media (max-width: 480px) { .stats { grid-template-columns: 1fr; } }
+.about { display: grid; grid-template-columns: 300px 1fr; gap: clamp(32px, 6vw, 72px); align-items: start; }
+.facts { background: var(--surface); border-radius: 18px; padding: 28px; box-shadow: 0 6px 24px rgba(17,18,20,.05); display: flex; flex-direction: column; gap: 18px; }
+.fact { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; }
+.fact .ic { width: 34px; height: 34px; border-radius: 50%; background: var(--mist); color: var(--teal); display: grid; place-items: center; }
+.fact .ic svg { width: 17px; height: 17px; }
+.fact div { display: flex; flex-direction: column; line-height: 1.35; }
+.fact small { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
+.fact span { font-weight: 500; font-size: .95rem; }
+.about-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.about-text h3 { font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.25rem); font-weight: 600; line-height: 1.3; }
+.about-text p { font-size: 1.1rem; line-height: 1.85; color: #2A2D32; max-width: 38em; }
+@media (max-width: 800px) { .about { grid-template-columns: 1fr; } .facts { order: 2; } }
 
-/* toolkit bento */
-.bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.tool { padding: 24px; display: flex; flex-direction: column; gap: 14px; transition: transform .25s, border-color .25s; min-width: 0; }
-.tool:hover { transform: translateY(-3px); border-color: var(--accent); }
-.tool.wide { grid-column: span 2; }
-.tool-head { display: flex; align-items: center; gap: 12px; }
-.tool-ic { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; color: var(--accent); flex: none; }
-.tool-ic svg { width: 19px; height: 19px; }
-.tool:nth-child(3n+1) .tool-ic { background: var(--blue-soft); }
-.tool:nth-child(3n+2) .tool-ic { background: var(--sky-soft); }
-.tool:nth-child(3n) .tool-ic { background: var(--accent-soft); }
-.tool h3 { font-size: 1.08rem; font-weight: 700; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: .76rem; padding: 6px 11px; border-radius: 10px; background: var(--paper); border: 1px solid var(--line); color: var(--ink); transition: background .2s, border-color .2s; }
-.chip:hover { background: var(--blue-soft); border-color: var(--blue); }
-.chip svg { width: 14px; height: 14px; flex: none; fill: var(--accent); }
-@media (max-width: 900px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .bento { grid-template-columns: 1fr; } .tool.wide { grid-column: auto; } }
+/* experience carousel */
+.track { display: flex; gap: 28px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 4px 28px; scrollbar-width: none; }
+.track::-webkit-scrollbar { display: none; }
+.job {
+  flex: 0 0 min(560px, 86%); scroll-snap-align: center; border-radius: 26px; padding: clamp(24px, 4vw, 40px);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3F9FB 55%, #DDEFF6 100%);
+  box-shadow: 0 10px 40px rgba(47,79,79,.10); display: flex; flex-direction: column; gap: 14px; min-width: 0;
+  transition: transform .3s;
+}
+.job:hover { transform: translateY(-4px); }
+.job-top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.job h4 { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem); font-weight: 300; line-height: 1.25; }
+.job .co { color: var(--mint); font-weight: 700; font-size: 1.3rem; }
+.job .mono { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--surface); display: grid; place-items: center; color: var(--teal); font-weight: 600; font-size: 1.1rem; box-shadow: 0 4px 14px rgba(47,79,79,.12); }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack span { background: var(--surface); border-radius: 999px; padding: 3px 12px; font-size: .78rem; font-weight: 500; color: var(--teal); box-shadow: 0 1px 4px rgba(17,18,20,.06); }
+.where { text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-size: .85rem; }
+.job ul { margin: 0; padding-left: 1.15em; display: flex; flex-direction: column; gap: 8px; color: #2A2D32; }
+.job li::marker { color: var(--mint); }
+.carousel-ctl { display: flex; justify-content: center; align-items: center; gap: 18px; }
+.carousel-ctl button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--faint); background: var(--surface); color: var(--teal); cursor: pointer; display: grid; place-items: center; transition: background .2s, color .2s; }
+.carousel-ctl button:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+.carousel-ctl svg { width: 18px; height: 18px; }
+.dots { display: flex; gap: 8px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); transition: background .3s, width .3s; }
+.dots i.on { background: var(--mint); width: 22px; border-radius: 4px; }
 
-/* work */
-.work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.proj { padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; transition: transform .25s, border-color .25s; min-width: 0; }
-.proj:hover { transform: translateY(-4px); border-color: var(--accent); }
-.proj .num { font-family: var(--mono); font-size: 2.6rem; font-weight: 500; line-height: 1; color: var(--paper-deep); position: absolute; top: 18px; right: 22px; transition: color .25s; }
-.proj:hover .num { color: var(--blue); }
-.proj .cat { font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-.proj h3 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.5rem); font-weight: 700; letter-spacing: -.01em; padding-right: 3.5rem; }
-.proj p { color: #3D5A5A; }
-.proj .result { font-weight: 700; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; }
-.proj .result::before { content: ""; width: 14px; height: 2px; background: var(--sky); }
-.applied { font-family: var(--mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
-.proj .chips .chip { font-size: .72rem; padding: 4px 9px; }
-.proj.featured { background: linear-gradient(140deg, var(--surface) 30%, var(--blue-soft)); }
-@media (max-width: 780px) { .work { grid-template-columns: 1fr; } }
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 18px; max-width: 960px; margin-inline: auto; }
+@media (max-width: 460px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.skill { position: relative; aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--surface); box-shadow: 0 4px 18px rgba(17,18,20,.05); display: grid; place-items: center; text-align: center; padding: 14px; cursor: default; overflow: hidden; border: 0; font: inherit; color: inherit; }
+.skill .face { display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform .3s; }
+.skill:hover .face { transform: scale(.9); }
+.skill .logos { display: flex; gap: 10px; align-items: center; height: 38px; }
+.skill .lg { width: 36px; height: 36px; }
+.skill .lg.wide { width: 62px; height: 34px; }
+.skill .name { font-weight: 600; font-size: .88rem; line-height: 1.25; }
+.skill .used { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; background: var(--teal); color: #fff; font-size: .72rem; line-height: 1.35; border-radius: 50%; opacity: 0; transform: scale(.85); transition: opacity .25s, transform .25s; }
+.skill:hover .used, .skill:focus-visible .used { opacity: 1; transform: scale(1); }
 
-/* timeline */
-.timeline { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(28px, 4vw, 56px); }
-.col { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-.col h3 { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-.col h3::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--accent); }
-.tl { list-style: none; margin: 0; padding: 0 0 0 22px; border-left: 2px solid var(--line); display: flex; flex-direction: column; gap: 26px; }
-.tl li { position: relative; display: flex; flex-direction: column; gap: 6px; }
-.tl li::before { content: ""; position: absolute; left: -29px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); transition: background .2s; }
-.tl li:hover::before { background: var(--accent); }
-.tl .when { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-.tl b { font-size: 1.05rem; }
-.tl .org { color: var(--muted); font-size: .92rem; }
-.tl ul { margin: 2px 0 0; padding-left: 1.1em; color: #3D5A5A; font-size: .95rem; display: flex; flex-direction: column; gap: 4px; }
-.tl ul li::before { display: none; }
-.tl ul li { display: list-item; }
-.tl ul li::marker { color: var(--sky); }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-.tag { font-family: var(--mono); font-size: .68rem; padding: 3px 8px; border-radius: 6px; background: var(--sky-soft); color: var(--ink); font-variant-numeric: tabular-nums; }
-.awards { padding: 22px; display: flex; flex-direction: column; gap: 12px; }
-.awards li { list-style: none; display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: .95rem; }
-.awards ul { margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.awards svg { width: 16px; height: 16px; color: var(--accent); margin-top: 4px; }
-.awards span { color: var(--muted); }
-@media (max-width: 880px) { .timeline { grid-template-columns: 1fr; } }
+/* projects */
+.projects-band { position: relative; }
+.projects-band::before { content: ""; position: absolute; inset: 120px 0 0; background: linear-gradient(180deg, var(--band), #D6ECF4); clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%); z-index: 0; }
+.projects-band > .wrap { position: relative; z-index: 1; }
+.proj-list { display: flex; flex-direction: column; gap: clamp(56px, 8vw, 96px); }
+.proj { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.proj:nth-child(even) .fig { order: 2; }
+.proj-text { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.proj h4 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem); font-weight: 600; line-height: 1.3; }
+.proj p { font-size: 1.05rem; color: #2A2D32; }
+.proj .result { font-weight: 600; color: var(--teal); }
+.fig { background: var(--surface); border-radius: 20px; padding: 28px 22px; box-shadow: 0 12px 40px rgba(47,79,79,.14); display: flex; flex-direction: column; gap: 14px; min-width: 0; transition: transform .35s; }
+.proj:hover .fig { transform: rotate(-1deg) translateY(-4px); }
+.fig .cap { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.pipe { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.pipe span { padding: 8px 12px; border-radius: 10px; font-size: .8rem; font-weight: 600; border: 1.5px solid; }
+.pipe .a { background: #F7F7E4; border-color: #D6D6AE; color: #4E4E2C; }
+.pipe .b { background: #E7F3F7; border-color: #ADD8E6; color: #2F4F4F; }
+.pipe .c { background: #E1F2FA; border-color: #87CEEB; color: #22506A; }
+.pipe .d { background: #EBEFF3; border-color: #A9B5C2; color: #3E4C5B; }
+.pipe i { width: 18px; height: 2px; background: var(--faint); position: relative; flex: none; }
+.pipe i::after { content: ""; position: absolute; right: -1px; top: -3px; border: 4px solid transparent; border-left: 6px solid var(--faint); border-right: 0; }
+.fig .note { font-size: .82rem; color: var(--muted); font-style: italic; }
+@media (max-width: 800px) { .proj { grid-template-columns: 1fr; } .proj:nth-child(even) .fig { order: 0; } }
 
-/* connect */
-.connect { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: clamp(40px, 6vw, 72px) clamp(20px, 4vw, 48px); background: linear-gradient(160deg, var(--blue-soft), var(--surface) 45%, var(--sky-soft)); }
-.connect h2 { font-size: clamp(2.4rem, 1.4rem + 4vw, 4.4rem); font-weight: 300; letter-spacing: -.035em; line-height: 1; }
-.connect h2 b { font-weight: 800; color: var(--accent); }
-.connect p { color: var(--muted); font-size: 1.1rem; max-width: 32em; }
-.mailrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
-.mail { font-family: var(--mono); font-size: clamp(.95rem, .85rem + .6vw, 1.2rem); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; user-select: all; overflow-wrap: anywhere; }
-footer { padding-block: 40px; }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.more { margin-top: clamp(56px, 8vw, 88px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; }
+.mini { background: rgba(255,255,255,.75); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px; transition: background .2s, transform .2s; }
+.mini:hover { background: #fff; transform: translateY(-3px); }
+.mini b { font-weight: 600; }
+.mini span { font-size: .9rem; color: #3D4148; }
+.mini em { font-style: normal; font-size: .8rem; color: var(--teal); font-weight: 600; }
 
+/* off the clock */
+.otc { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 0 48px; max-width: 900px; margin-inline: auto; }
+.otc div { display: grid; grid-template-columns: 1fr; gap: 2px; padding-block: 18px; border-bottom: 1px solid #E2E2C8; }
+.otc b { font-weight: 600; }
+.otc span { color: var(--muted); font-size: .95rem; }
+
+
+/* contact */
+.contact { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.contact h3 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem); font-weight: 600; }
+.lines { display: flex; flex-direction: column; gap: 14px; align-items: center; font-size: 1.15rem; }
+.line { display: flex; align-items: center; gap: 14px; }
+.line svg { width: 22px; height: 22px; color: var(--teal); flex: none; }
+.line .email { user-select: all; overflow-wrap: anywhere; }
+.copy { font: inherit; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; border: 1px solid var(--faint); background: var(--surface); color: var(--teal); padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
+.copy:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+footer { padding-block: 48px; text-align: center; color: #778899; font-size: .85rem; }
+
+@media (max-width: 640px) {
+  .socials { position: absolute; left: 50%; transform: translateX(-50%); }
+  .socials a:hover, .socials button:hover { transform: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
@@ -219,346 +218,291 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </head>
 <body>
 
-<header class="bar">
-  <div class="wrap">
-    <a class="brand" href="#top">Helly Dhamesha<span>.</span></a>
-    <ul class="links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#toolkit">Toolkit</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#timeline">Timeline</a></li>
-      <li><a href="#connect">Contact</a></li>
-    </ul>
-    <a class="bar-mail" href="#connect">dhameshahelly@gmail.com</a>
-  </div>
-</header>
-
-<nav class="rail left" aria-label="Elsewhere">
+<div class="socials">
   <a href="https://www.linkedin.com/in/helly-dhamesha/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06C21.1 9.04 21.5 11.7 21.5 15v6h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21h-4z"/></svg></a>
   <a href="https://github.com/helly-22" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
-  <a href="#about" id="blog-link" aria-label="Read my blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span class="tip">read my blog</span></a>
-</nav>
-<div class="rail right" aria-hidden="true">
-  <span class="scroll-word">SCROLL</span>
-  <span class="progress"><i id="progress"></i></span>
+  <a href="#contact" aria-label="Email"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 6.25L2 5.8zM2 8.15V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.15l-9.47 5.92a1 1 0 0 1-1.06 0z"/></svg></a>
 </div>
 
-<section class="hero" id="top">
-  <canvas id="net" aria-hidden="true"></canvas>
+<header class="hero" id="top">
+  <div class="ring"></div>
+  <div class="ring r2"></div>
   <div class="hero-inner">
-    <span class="status"><i></i>Open to AI engineering &amp; research roles</span>
-    <h1>Helly<br><span>Dhamesha</span></h1>
-    <p class="role">AI Engineer <b>|</b> LLM Systems <b>|</b> MS CS @ UMass Amherst</p>
-    <p class="typed-line" aria-live="off"><span class="prompt">&gt;</span><span id="typed">Hi, I'm Helly</span><span class="caret" aria-hidden="true"></span></p>
-    <div class="cta">
-      <a class="btn fill" href="#work">View work</a>
-      <a class="btn ghost" href="#connect">Get in touch</a>
-    </div>
+    <div class="avatar" aria-hidden="true">HD</div>
+    <p class="eyebrow">AI Engineer</p>
+    <h1><span id="typed">Hi, I'm Helly</span><span class="cursor" aria-hidden="true">|</span></h1>
+    <p class="tagline">I build LLM systems and study how they treat people.</p>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-  <a class="scroll-cue" href="#about">SCROLL DOWN</a>
-</section>
+  <div class="doodles">
+    <a class="doodle" id="blog-link" href="#about" style="--x:278px; --y:-195px" aria-label="Read my blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span class="tip">read my blog</span></a>
+  </div>
+  <a class="down" href="#about" aria-label="Scroll to About"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+</header>
 
 <main>
   <section class="sec" id="about">
     <div class="wrap">
-      <h2 class="title"><span class="idx">01</span>About <b>me</b></h2>
+      <div class="sec-head"><h2 class="eyebrow">About</h2></div>
       <div class="about">
-        <div class="about-main">
-          <div class="me">
-            <span class="avatar" aria-hidden="true">HD</span>
-            <div><span class="mono">Amherst, MA</span><b>AI engineer &amp; researcher</b></div>
-          </div>
-          <p>I'm Helly, an AI engineer finishing my MS in Computer Science at UMass Amherst, with a BTech in CS specializing in AI &amp; Robotics from VIT.</p>
-          <p>I like the part of AI that happens after the demo. At Anumana I worked on ECG models that became part of an FDA-cleared algorithm used in US hospitals. Now I build LLM agents and retrieval systems, and research how language models behave when their choices affect people.</p>
-          <p>Off the clock you'll find me sketching, out on a trail, writing, reading, playing sports, or baking.</p>
-          <div class="stats">
-            <div class="stat card"><b data-count="150" data-suffix="K+">150K+</b><span>Patient records modeled</span></div>
-            <div class="stat card"><b data-count="60" data-suffix="+">60+</b><span>US hospitals reached</span></div>
-            <div class="stat card"><b data-count="11" data-suffix="%">11%</b><span>CASE gain over RAG</span></div>
-          </div>
-        </div>
-        <div class="about-side">
-          <div class="panel card">
-            <span class="label">Right now</span>
-            <ul class="now">
-              <li>Building qa-hub, an LLM observability platform, at Aosenuma</li>
-              <li>Researching non-pushy conversational ads with Qwen3 on vLLM</li>
-              <li>Writing a manuscript: <i>"Is Your LLM a Capitalist?"</i></li>
-            </ul>
-          </div>
-          <div class="panel card">
-            <span class="label">Education</span>
-            <div class="edu">
-              <div><b>University of Massachusetts Amherst</b><span>MS, Computer Science</span></div>
-              <div><b>Vellore Institute of Technology</b><span>BTech CSE, AI &amp; Robotics</span></div>
-            </div>
-          </div>
+        <aside class="facts">
+          <div class="fact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Based in</small><span>Amherst, MA</span></div></div>
+          <div class="fact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><small>Studying</small><span>MS CS, UMass Amherst</span></div></div>
+          <div class="fact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span><div><small>Building</small><span>LLM observability at Aosenuma</span></div></div>
+          <div class="fact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></span><div><small>Previously</small><span>FDA-cleared cardiac AI at Anumana</span></div></div>
+        </aside>
+        <div class="about-text">
+          <h3>Here is a <span class="u">little</span> background</h3>
+          <p>Hey! I'm Helly, an AI engineer finishing my MS in Computer Science at UMass Amherst. Before that I studied CS with a specialization in AI &amp; Robotics at VIT in Chennai.</p>
+          <p>I love the part of AI that happens after the demo. At Anumana I worked on ECG models that became part of an FDA-cleared algorithm used in US hospitals, and learned that careful evaluation is what makes a model trustworthy. These days I build LLM agents and retrieval systems, and I research how language models behave when they make choices about people: whether they share resources fairly, and whether an assistant can recommend a product without being pushy.</p>
+          <p>Off the clock you'll find me sketching, out on a trail, writing, buried in a book, playing sports, or baking something for whoever is nearby. I also chair CSWomen at UMass and once sat on the child jury of an international film festival.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="toolkit">
+  <section class="sec" id="experience">
     <div class="wrap">
-      <h2 class="title"><span class="idx">02</span>My <b>toolkit</b></h2>
-      <div class="bento">
-        <div class="tool card wide">
-          <div class="tool-head"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>LLMs &amp; agents</h3></div>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>Claude API</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>OpenAI API</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.0988 5.9175C2.7359 5.9175 0 8.6462 0 12s2.736 6.0825 6.0988 6.0825h11.8024C21.2641 18.0825 24 15.3538 24 12s-2.736-6.0825-6.0988-6.0825ZM5.9774 7.851c.493.0124 1.02.2496 1.273.6228.3673.4592.4778 1.0668.8944 1.4932.5604.6118 1.199 1.1505 1.7161 1.802.4892.5954.8386 1.2937 1.1436 1.9975.1244.2335.1257.5202.31.7197.0908.1204.5346.4483.4383.5645.0555.1204.4702.286.3263.4027-.1944.04-.4129.0476-.5616-.1074-.0549.126-.183.0596-.2819.0432a4 4 0 0 0-.025.0736c-.3288.0219-.5754-.3126-.732-.565-.3111-.168-.6642-.2702-.982-.446-.0182.2895.0452.6485-.231.8353-.014.5565.8436.0656.9222.4804-.061.0067-.1286-.0095-.1774.0373-.2239.2172-.4805-.1645-.7385-.007-.3464.174-.3808.3161-.8096.352-.0237-.0359-.0143-.0592.0059-.0811.1207-.1399.1295-.3046.3356-.3643-.2122-.0334-.3899.0833-.5686.1757-.2323.095-.2304-.2141-.5878.0164-.0396-.0322-.0208-.0615.0018-.0864.0908-.1107.2102-.127.345-.1208-.663-.3686-.9751.4507-1.2813.0432-.092.0243-.1265.1068-.1845.1652-.05-.0548-.0123-.1212-.0099-.1857-.0598-.028-.1356-.041-.1179-.1366-.1171-.0395-.1988.0295-.286.0952-.0787-.0608.0532-.1492.0776-.2125.0702-.1216.23-.025.3111-.1126.2306-.1308.552.0814.8155.0455.203.0255.4544-.1825.3526-.39-.2171-.2767-.179-.6386-.1839-.9695-.0268-.1929-.491-.4382-.6252-.6462-.1659-.1873-.295-.4047-.4243-.6182-.4666-.9008-.3198-2.0584-.9077-2.8947-.266.1466-.6125.0774-.8418-.119-.1238.1125-.1292.2598-.139.4161-.297-.2962-.2593-.8559-.022-1.1855.0969-.1302.2127-.2373.342-.3316.0292-.0213.0391-.0419.0385-.0747.1174-.5267.5764-.7391 1.0694-.7267m12.4071.46c.5575 0 1.0806.2159 1.474.6082s.61.9145.61 1.4704c0 .556-.2167 1.078-.61 1.4698v.0006l-.902.8995a2.08 2.08 0 0 1-.8597.5166l-.0164.0047-.0058.0164a2.05 2.05 0 0 1-.474.7308l-.9018.8995c-.3934.3924-.917.6083-1.4745.6083s-1.0806-.216-1.474-.6083c-.813-.8107-.813-2.1294 0-2.9402l.9019-.8995a2.056 2.056 0 0 1 .858-.5143l.017-.0053.0058-.0158a2.07 2.07 0 0 1 .4752-.7337l.9018-.8995c.3934-.3924.9171-.6083 1.4745-.6083zm0 .8965a1.18 1.18 0 0 0-.8388.3462l-.9018.8995a1.181 1.181 0 0 0-.3427.9252l.0053.0572c.0323.2652.149.5044.3374.6917.13.1296.2733.2114.4471.2686a.9.9 0 0 1 .014.1582.884.884 0 0 1-.2609.6304l-.0554.0554c-.3013-.1028-.5525-.253-.7794-.4792a2.06 2.06 0 0 1-.5761-1.0968l-.0099-.0578-.0461.0368a1.1 1.1 0 0 0-.0876.0794l-.9024.8995c-.4623.461-.4623 1.212 0 1.673.2311.2305.535.346.8394.3461.3043 0 .6077-.1156.8388-.3462l.9019-.8995c.4623-.461.4623-1.2113 0-1.673a1.17 1.17 0 0 0-.4367-.2749 1 1 0 0 1-.014-.1611c0-.2591.1023-.505.2901-.6923.3019.1028.57.2694.7962.495.3007.2999.4994.679.5756 1.0968l.0105.0578.0455-.0373a1.1 1.1 0 0 0 .0887-.0794l.902-.8996c.4622-.461.4628-1.2124 0-1.6735a1.18 1.18 0 0 0-.8395-.3462Zm-9.973 5.1567-.0006.0006c-.0793.3078-.1048.8318-.506.847-.033.1776.1228.2445.2655.1874.141-.0645.2081.0508.2557.1657.2177.0317.5394-.0725.5516-.3298-.325-.1867-.4253-.5418-.5662-.8709"/></svg>LangChain</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.0988 5.9175C2.7359 5.9175 0 8.6462 0 12s2.736 6.0825 6.0988 6.0825h11.8024C21.2641 18.0825 24 15.3538 24 12s-2.736-6.0825-6.0988-6.0825ZM5.9774 7.851c.493.0124 1.02.2496 1.273.6228.3673.4592.4778 1.0668.8944 1.4932.5604.6118 1.199 1.1505 1.7161 1.802.4892.5954.8386 1.2937 1.1436 1.9975.1244.2335.1257.5202.31.7197.0908.1204.5346.4483.4383.5645.0555.1204.4702.286.3263.4027-.1944.04-.4129.0476-.5616-.1074-.0549.126-.183.0596-.2819.0432a4 4 0 0 0-.025.0736c-.3288.0219-.5754-.3126-.732-.565-.3111-.168-.6642-.2702-.982-.446-.0182.2895.0452.6485-.231.8353-.014.5565.8436.0656.9222.4804-.061.0067-.1286-.0095-.1774.0373-.2239.2172-.4805-.1645-.7385-.007-.3464.174-.3808.3161-.8096.352-.0237-.0359-.0143-.0592.0059-.0811.1207-.1399.1295-.3046.3356-.3643-.2122-.0334-.3899.0833-.5686.1757-.2323.095-.2304-.2141-.5878.0164-.0396-.0322-.0208-.0615.0018-.0864.0908-.1107.2102-.127.345-.1208-.663-.3686-.9751.4507-1.2813.0432-.092.0243-.1265.1068-.1845.1652-.05-.0548-.0123-.1212-.0099-.1857-.0598-.028-.1356-.041-.1179-.1366-.1171-.0395-.1988.0295-.286.0952-.0787-.0608.0532-.1492.0776-.2125.0702-.1216.23-.025.3111-.1126.2306-.1308.552.0814.8155.0455.203.0255.4544-.1825.3526-.39-.2171-.2767-.179-.6386-.1839-.9695-.0268-.1929-.491-.4382-.6252-.6462-.1659-.1873-.295-.4047-.4243-.6182-.4666-.9008-.3198-2.0584-.9077-2.8947-.266.1466-.6125.0774-.8418-.119-.1238.1125-.1292.2598-.139.4161-.297-.2962-.2593-.8559-.022-1.1855.0969-.1302.2127-.2373.342-.3316.0292-.0213.0391-.0419.0385-.0747.1174-.5267.5764-.7391 1.0694-.7267m12.4071.46c.5575 0 1.0806.2159 1.474.6082s.61.9145.61 1.4704c0 .556-.2167 1.078-.61 1.4698v.0006l-.902.8995a2.08 2.08 0 0 1-.8597.5166l-.0164.0047-.0058.0164a2.05 2.05 0 0 1-.474.7308l-.9018.8995c-.3934.3924-.917.6083-1.4745.6083s-1.0806-.216-1.474-.6083c-.813-.8107-.813-2.1294 0-2.9402l.9019-.8995a2.056 2.056 0 0 1 .858-.5143l.017-.0053.0058-.0158a2.07 2.07 0 0 1 .4752-.7337l.9018-.8995c.3934-.3924.9171-.6083 1.4745-.6083zm0 .8965a1.18 1.18 0 0 0-.8388.3462l-.9018.8995a1.181 1.181 0 0 0-.3427.9252l.0053.0572c.0323.2652.149.5044.3374.6917.13.1296.2733.2114.4471.2686a.9.9 0 0 1 .014.1582.884.884 0 0 1-.2609.6304l-.0554.0554c-.3013-.1028-.5525-.253-.7794-.4792a2.06 2.06 0 0 1-.5761-1.0968l-.0099-.0578-.0461.0368a1.1 1.1 0 0 0-.0876.0794l-.9024.8995c-.4623.461-.4623 1.212 0 1.673.2311.2305.535.346.8394.3461.3043 0 .6077-.1156.8388-.3462l.9019-.8995c.4623-.461.4623-1.2113 0-1.673a1.17 1.17 0 0 0-.4367-.2749 1 1 0 0 1-.014-.1611c0-.2591.1023-.505.2901-.6923.3019.1028.57.2694.7962.495.3007.2999.4994.679.5756 1.0968l.0105.0578.0455-.0373a1.1 1.1 0 0 0 .0887-.0794l.902-.8996c.4622-.461.4628-1.2124 0-1.6735a1.18 1.18 0 0 0-.8395-.3462Zm-9.973 5.1567-.0006.0006c-.0793.3078-.1048.8318-.506.847-.033.1776.1228.2445.2655.1874.141-.0645.2081.0508.2557.1657.2177.0317.5394-.0725.5516-.3298-.325-.1867-.4253-.5418-.5662-.8709"/></svg>LangGraph</span><span class="chip">MCP</span><span class="chip">RAG</span><span class="chip">vLLM</span><span class="chip">FAISS</span><span class="chip">BM25</span><span class="chip">pgvector</span><span class="chip">Eval harnesses</span></div>
-        </div>
-        <div class="tool card">
-          <div class="tool-head"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><h3>Languages</h3></div>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">R</span></div>
-        </div>
-        <div class="tool card">
-          <div class="tool-head"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5l2.8 8.5M16 7.5l-2.8 8.5M8.5 6h7"/></svg></span><h3>Machine learning</h3></div>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.005 0L4.952 7.053a9.865 9.865 0 000 14.022 9.866 9.866 0 0014.022 0c3.984-3.9 3.986-10.205.085-14.023l-1.744 1.743c2.904 2.905 2.904 7.634 0 10.538s-7.634 2.904-10.538 0-2.904-7.634 0-10.538l4.647-4.646.582-.665zm3.568 3.899a1.327 1.327 0 00-1.327 1.327 1.327 1.327 0 001.327 1.328A1.327 1.327 0 0016.9 5.226 1.327 1.327 0 0015.573 3.9z"/></svg>PyTorch</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"/></svg>TensorFlow</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.4446 11.5059c0 1.1021.1673 2.1585.4847 3.1563-.0378-.0028-.0691-.0058-.1058-.0058-.4209 0-.8015.16-1.0704.4512-.3454.3737-.4984.8335-.4316 1.293a1.576 1.576 0 0 0 .2148.5978c-.2319.1864-.4018.4456-.4844.7578-.0646.2448-.131.7543.2149 1.2794a1.4552 1.4552 0 0 0-.0625.1055c-.208.3923-.2207.8372-.0371 1.25.2783.6258.9696 1.1175 2.3126 1.6467.8356.3292 1.5988.5411 1.6056.543 1.1046.2847 2.104.4277 2.969.4277 1.4173 0 2.4754-.3849 3.1525-1.1446 1.538.2651 2.791.1403 3.592.006.6773.7555 1.7332 1.1387 3.1467 1.1387.8649 0 1.8643-.143 2.969-.4278.0068-.0019.77-.2138 1.6056-.543 1.343-.5292 2.0343-1.0208 2.3126-1.6466.1836-.4129.171-.8577-.037-1.25a1.4685 1.4685 0 0 0-.0626-.1056c.346-.525.2795-1.0346.2149-1.2793-.0826-.3122-.2525-.5714-.4844-.7579.11-.1816.1831-.3788.2148-.5977.0669-.4595-.0862-.9193-.4316-1.293-.2688-.2913-.6495-.4513-1.0704-.4513-.0209 0-.0376.0008-.0588.0018.3162-.9966.4846-2.0518.4846-3.1523 0-5.807-4.7362-10.5144-10.5789-10.5144-5.8426 0-10.5788 4.7073-10.5788 10.5144Zm10.5788-9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1-.2696 2.2365c-.0039-.0047-.0079-.011-.0117-.0156-.274-.3255-.6679-.5059-1.1075-.5059-.352 0-.714.1155-1.0763.3438-.2403.1517-.5058.422-.7793.7598-.2534-.3492-.608-.5832-1.0137-.6465a1.5174 1.5174 0 0 0-.2344-.0176c-.9263 0-1.4828.7993-1.6935 1.5177-.1046.2426-.6065 1.3482-1.3614 2.0978-1.1681 1.1601-1.4458 2.3534-.8396 3.6382-.843.1029-1.5836.0927-2.365-.006.5906-1.212.3626-2.4388-.8426-3.6322-.755-.7496-1.2568-1.8552-1.3614-2.0978-.2107-.7184-.7673-1.5177-1.6935-1.5177-.078 0-.1568.0054-.2344.0176-.4057.0633-.7604.2973-1.0137.6465-.2735-.3379-.539-.6081-.7794-.7598-.3622-.2283-.7243-.3438-1.0762-.3438-.4266 0-.8094.171-1.0821.4786a9.4208 9.4208 0 0 1-.2598-2.1936c0-5.237 4.2749-9.483 9.5475-9.483zM8.6443 7.0036c-.4838.0043-.9503.2667-1.1934.7227-.3536.6633-.1006 1.4873.5645 1.84.351.1862.4883-.5261.836-.6485.3107-.1095.841.399 1.0078.086.3536-.6634.1025-1.4874-.5625-1.84a1.3659 1.3659 0 0 0-.6524-.1602Zm6.8403 0c-.2199-.002-.4426.05-.6504.1602-.665.3526-.9181 1.1766-.5645 1.84.1669.313.6971-.1955 1.0079-.086.3476.1224.4867.8347.838.6485.6649-.3527.916-1.1767.5624-1.84-.243-.456-.7096-.7184-1.1934-.7227Zm-9.7565 1.418a.8768.8768 0 0 0-.877.877c0 .4846.3925.877.877.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zm12.6434 0c-.4845 0-.879.3925-.879.877 0 .4846.3945.877.879.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zM8.7927 11.459c-.179-.003-.2793.1107-.2793.416 0 .8097.3874 2.125 1.4279 2.924.207-.7123 1.3453-1.2832 1.5079-1.2012.2315.1167.2191.4417.6074.7266.3884-.285.374-.6098.6056-.7266.1627-.082 1.3009.4889 1.5079 1.2012 1.0404-.799 1.4278-2.1144 1.4278-2.924 0-1.2212-1.583.6402-3.5413.6485-1.4686-.0061-2.7266-1.0558-3.2639-1.0645zM4.312 14.4768c.5792.365 1.6964 2.2751 2.1056 3.0177.1371.2488.371.3536.582.3536.4188 0 .7465-.4138.0391-.9395-1.0636-.791-.6914-2.0846-.1836-2.1642a.4302.4302 0 0 1 .0664-.004c.4616 0 .666.7892.666.7892s.5959 1.4898 1.6213 2.508c.942.9356 1.062 1.703.4961 2.6661-.0164-.004-.0159.0236-.1484.2149-.1853.2673-.4322.4688-.7188.6152-.5062.2269-1.1397.2696-1.7833.2696-1.037 0-2.1017-.1824-2.6975-.336-.0293-.0075-3.6505-.9567-3.1916-1.8224.0771-.1454.2033-.2031.3633-.2031.6463 0 1.823.9551 2.3283.9551.113 0 .196-.0865.2285-.2031.2249-.8045-3.2787-1.0522-2.9846-2.1642.0519-.1967.193-.2757.3907-.2754.854 0 2.7704 1.4923 3.172 1.4923.0307 0 .0525-.0085.0645-.0274.2012-.3227.1096-.5865-1.3087-1.4395-1.4182-.8533-2.4315-1.329-1.8653-1.9416.0651-.0707.1574-.1015.2695-.1015.8611.0002 2.8948 1.84 2.8948 1.84s.5487.5683.8809.5683c.0762 0 .1416-.0315.1855-.1054.2355-.3946-2.1858-2.2183-2.3224-2.971-.0926-.51.0641-.7676.3555-.7676-.0006.008.1701-.0285.4942.1759zm16.2257.5918c-.1366.7526-2.5579 2.5764-2.3224 2.9709.044.074.1092.1055.1855.1055.3321 0 .881-.5684.881-.5684s2.0336-1.8397 2.8947-1.84c.1121 0 .2044.0308.2695.1016.5662.6125-.447 1.0882-1.8653 1.9415-1.4183.853-1.51 1.1168-1.3087 1.4396.012.0188.0337.0273.0644.0273.4016 0 2.3181-1.4923 3.1721-1.4923.1977-.0002.3388.0787.3907.2754.294 1.112-3.2095 1.3597-2.9846 2.1642.0325.1166.1156.2032.2285.2032.5054 0 1.682-.9552 2.3283-.9552.16 0 .2862.0577.3633.2032.459.8656-3.1623 1.8149-3.1916 1.8224-.5958.1535-1.6605.336-2.6975.336-.6351 0-1.261-.0409-1.7638-.2599-.2949-.1472-.5488-.3516-.7383-.625-.0411-.0682-.1026-.1476-.1426-.205-.5726-.9679-.455-1.7371.4903-2.676 1.0254-1.0182 1.6212-2.508 1.6212-2.508s.2044-.7891.666-.7891a.4318.4318 0 0 1 .0665.0039c.5078.0796.88 1.3732-.1836 2.1642-.7074.5257-.3797.9395.039.9395.211 0 .445-.1047.5821-.3535.4092-.7426 1.5264-2.6527 2.1056-3.0178.5588-.3524.99-.1816.8497.5918z"/></svg>Hugging Face</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a9.74 9.74 0 0 0 .584-.643c.043-.292.205-.66.489-1.106a1.848 1.848 0 0 1-.537.176c-.144.265-.37.55-.676.855-.354.335-.607.554-.76.656a.795.795 0 0 1-.437.152c-.35 0-.514-.308-.494-.924-.22.316-.425.549-.612.7a.914.914 0 0 1-.578.224c-.194 0-.36-.09-.496-.273a1.03 1.03 0 0 1-.193-.507 4.016 4.016 0 0 1-.726.583c-.224.132-.47.197-.74.197-.3 0-.543-.096-.727-.288a.978.978 0 0 1-.257-.524v.004c-.3.276-.564.48-.79.611a1.295 1.295 0 0 1-.649.197.693.693 0 0 1-.571-.275c-.145-.183-.218-.43-.218-.739 0-.464.101-1.02.302-1.67.201-.65.445-1.25.733-1.797l.842-.312a.21.21 0 0 1 .06-.013c.063 0 .116.047.157.14.04.095.061.221.061.38 0 .451-.104.888-.312 1.31-.207.422-.532.873-.974 1.352-.018.23-.027.388-.027.474 0 .193.036.345.106.458.071.113.165.169.282.169a.71.71 0 0 0 .382-.13c.132-.084.333-.26.602-.523.028-.418.187-.798.482-1.142.324-.38.685-.569 1.08-.569.206 0 .37.054.494.16a.524.524 0 0 1 .186.417c0 .458-.486.829-1.459 1.114.088.43.32.646.693.646a.807.807 0 0 0 .417-.117c.129-.076.321-.243.575-.497.032-.252.118-.495.259-.728.182-.3.416-.544.701-.73.285-.185.537-.278.756-.278.276 0 .47.127.58.381l.677-.374h.186l-.292.971c-.15.488-.226.823-.226 1.004 0 .19.067.285.202.285.086 0 .181-.045.285-.137.104-.092.25-.232.437-.42v.001c.143-.155.274-.32.392-.494-.19-.084-.285-.21-.285-.375 0-.17.058-.352.174-.545.116-.194.275-.29.479-.29.172 0 .258.088.258.265 0 .139-.05.338-.149.596.367-.04.687-.32.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471zm4.725 8.203a8.938 8.938 0 0 1-1.333 2.151 1.09 1.09 0 0 0-.012.147c0 .168.047.309.14.423.092.113.206.17.34.17.296 0 .714-.264 1.254-.787-.001.04-.003.08-.003.121 0 .146.012.368.036.666l.733-.172c0-.2.003-.357.01-.474.01-.157.033-.33.066-.517.02-.11.07-.216.152-.315l.186-.216a5.276 5.276 0 0 1 .378-.397c.062-.055.116-.099.162-.13a.26.26 0 0 1 .123-.046c.055 0 .083.035.083.106 0 .07-.052.236-.156.497-.194.486-.292.848-.292 1.084 0 .175.046.314.136.418a.45.45 0 0 0 .358.155c.365 0 .803-.269 1.313-.808v-.381c-.361.426-.623.64-.784.64-.109 0-.163-.067-.163-.2 0-.1.065-.316.195-.65.19-.486.285-.836.285-1.048a.464.464 0 0 0-.112-.319.36.36 0 0 0-.282-.127c-.165 0-.354.077-.567.233-.213.156-.5.436-.863.84.053-.262.165-.622.335-1.08l-.809.156a6.54 6.54 0 0 0-.399 1.074c-.04.156-.07.316-.092.48a7.447 7.447 0 0 1-.49.45.38.38 0 0 1-.229.08.208.208 0 0 1-.174-.082.352.352 0 0 1-.064-.222c0-.1.019-.214.056-.343.038-.13.12-.373.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717c0 .037.006.062.02.075.012.013.037.02.074.02a.23.23 0 0 0 .078-.01v.141a.802.802 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258c.081 0 .15.012.207.038.057.024.1.061.13.11s.045.106.045.173h-.176c-.006-.111-.075-.167-.208-.167a.285.285 0 0 0-.164.041.134.134 0 0 0-.06.117c0 .035.015.065.045.088.03.024.08.044.15.06l.16.039a.47.47 0 0 1 .224.105c.047.046.07.108.07.186a.3.3 0 0 1-.052.175.327.327 0 0 1-.152.116.585.585 0 0 1-.226.041c-.136 0-.24-.03-.309-.088-.069-.059-.105-.149-.109-.269h.176c.004.037.01.065.017.084a.166.166 0 0 0 .034.054c.044.043.112.065.204.065a.31.31 0 0 0 .177-.045.139.139 0 0 0 .067-.119.116.116 0 0 0-.038-.09.287.287 0 0 0-.124-.055l-.156-.038a1.248 1.248 0 0 1-.159-.05.359.359 0 0 1-.098-.061.22.22 0 0 1-.058-.083.32.32 0 0 1-.016-.108c0-.096.036-.174.109-.232a.45.45 0 0 1 .29-.087zm1.035 0a.46.46 0 0 1 .202.043.351.351 0 0 1 .187.212.577.577 0 0 1 .023.126h-.168a.256.256 0 0 0-.078-.168.242.242 0 0 0-.17-.06.248.248 0 0 0-.155.05.306.306 0 0 0-.1.144.662.662 0 0 0-.034.224.58.58 0 0 0 .035.214.299.299 0 0 0 .101.135.261.261 0 0 0 .157.048c.142 0 .227-.084.256-.252h.167a.519.519 0 0 1-.065.22.35.35 0 0 1-.146.138.464.464 0 0 1-.216.048.448.448 0 0 1-.246-.066.441.441 0 0 1-.161-.192.703.703 0 0 1-.057-.293c0-.085.01-.163.032-.233a.522.522 0 0 1 .095-.182.403.403 0 0 1 .15-.117.453.453 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618c-.08 0-.2.204-.356.611-.155.407-.308.977-.459 1.71.281-.312.509-.662.683-1.05.175-.387.262-.72.262-.999a.455.455 0 0 0-.036-.197c-.025-.05-.056-.075-.093-.075zm4.662 1.797c-.221 0-.431.188-.629.563-.197.376-.296.722-.296 1.038 0 .12.029.216.088.29a.273.273 0 0 0 .223.111c.221 0 .43-.188.625-.565.196-.377.294-.725.294-1.043a.457.457 0 0 0-.083-.29.269.269 0 0 0-.222-.104zm-2.848.007c-.146 0-.285.11-.417.333-.133.222-.2.51-.2.866.566-.159.849-.452.849-.881 0-.212-.077-.318-.232-.318Z"/></svg>scikit-learn</span><span class="chip">GNNs</span><span class="chip">LoRA / SFT</span><span class="chip">SHAP &amp; LIME</span></div>
-        </div>
-        <div class="tool card">
-          <div class="tool-head"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Computer vision</h3></div>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8992.8525C8.735.8525 6.17 3.4175 6.17 6.5817c0 2.102 1.1321 3.9398 2.8198 4.9366l1.6412-2.7849c.0411-.0699.0176-.1593-.0495-.2048-.6233-.4227-1.0328-1.137-1.0328-1.947 0-1.298 1.0524-2.3504 2.3505-2.3504 1.2981 0 2.3505 1.0524 2.3505 2.3505 0 .8098-.4095 1.5242-1.0328 1.947-.0671.0454-.0907.1348-.0495.2047l1.6414 2.785c1.6878-.9969 2.8199-2.8346 2.8199-4.9367 0-3.1642-2.5653-5.7292-5.7295-5.7292zm-6.17 10.8366C2.565 11.6891 0 14.2541 0 17.4183c0 3.1642 2.565 5.7292 5.7292 5.7292 3.1798 0 5.8074-2.6995 5.7275-5.8762H8.2313c-.0847 0-.1513.0717-.1519.1564-.0082 1.266-1.0644 2.3411-2.3502 2.3411-1.2981 0-2.3505-1.0524-2.3505-2.3505 0-1.2982 1.0524-2.3505 2.3505-2.3505.34 0 .663.0724.9547.2022.0713.0318.1566.0077.1962-.0595l1.6464-2.7935c-.8273-.4636-1.7815-.7279-2.7973-.7279zm15.4424.7614l-1.6366 2.7878c-.041.07-.0172.1594.05.2048.624.4217 1.0348 1.1354 1.0363 1.9452.0022 1.298-1.0483 2.352-2.3465 2.3542-1.298.0023-2.3523-1.0482-2.3545-2.3462-.0015-.8098.4068-1.5248 1.0294-1.9486.067-.0457.0905-.1353.0492-.2051l-1.6464-2.7818c-1.6859.9998-2.8146 2.8394-2.811 4.9415.0056 3.1641 2.575 5.7248 5.7393 5.7192 3.1641-.0054 5.7246-2.575 5.7192-5.7392-.0037-2.1022-1.139-3.938-2.8284-4.9318z"/></svg>OpenCV</span><span class="chip">CNNs</span><span class="chip">OCR</span><span class="chip">Pose estimation</span><span class="chip">MIL</span></div>
-        </div>
-        <div class="tool card">
-          <div class="tool-head"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><h3>Data</h3></div>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg>PostgreSQL</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"/></svg>Pandas</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.812 0c-.425.013-.845.215-1.196.605a3.593 3.593 0 00-.493.722c-.355.667-.425 1.415-.556 2.143a551.9 551.9 0 00-.726 4.087c-.027.16-.096.227-.244.273C5.83 8.386 4.06 8.94 2.3 9.514c-.387.125-.773.289-1.114.506-1.042.665-1.196 1.753-.415 2.71.346.422.79.715 1.284.936 1.1.49 2.202.976 3.3 1.47.019.01.036.013.053.019h-.004l1.306.535c0 .023.002.045 0 .073-.2 2.03-.39 4.063-.58 6.095-.04.419-.012.831.134 1.23.317.87 1.065 1.148 1.881.701.372-.204.666-.497.937-.818 1.372-1.623 2.746-3.244 4.113-4.872.111-.133.205-.15.363-.098.349.117.697.231 1.045.347h.001c.02.012.045.02.073.03l.142.042c1.248.416 2.68.775 3.929 1.19.4.132.622.164 1.045.098.311-.048.592-.062.828-.236.602-.33.995-.957.988-1.682-.005-.427-.154-.813-.35-1.186-.82-1.556-1.637-3.113-2.461-4.666-.078-.148-.076-.243.037-.375 1.381-1.615 2.756-3.236 4.133-4.855.272-.32.513-.658.653-1.058.308-.878-.09-1.57-1-1.741a2.783 2.783 0 00-1.235.069c-1.974.521-3.947 1.041-5.918 1.57-.175.047-.26.015-.355-.144a353.08 353.08 0 00-2.421-4.018 4.61 4.61 0 00-.652-.849c-.371-.37-.802-.549-1.227-.536zm.172 3.703a.592.592 0 01.189.211c.87 1.446 1.742 2.89 2.609 4.338.07.118.135.16.277.121 1.525-.41 3.052-.813 4.579-1.217.367-.098.735-.193 1.103-.289a.399.399 0 01-.1.2c-1.259 1.48-2.516 2.962-3.779 4.438-.11.13-.12.22-.04.37.937 1.803 1.768 3.309 2.498 4.76l-3.696-1.019c-.538-.18-1.077-.358-1.615-.539-.163-.055-.25-.03-.36.1-1.248 1.488-2.504 2.97-3.759 4.454a.398.398 0 01-.18.132c.035-.378.068-.757.104-1.136.149-1.572.297-3.144.451-4.716-.03-.318.117-.405-.322-.545-1.493-.593-3.346-1.321-4.816-1.905a.595.595 0 01.24-.134c1.797-.57 3.595-1.14 5.394-1.705.127-.04.199-.092.211-.233.013-.148.05-.294.076-.441.241-1.363.483-2.726.726-4.088.068-.386.14-.771.21-1.157z"/></svg>Spark</span><span class="chip">A/B testing</span><span class="chip">Causal inference</span></div>
-        </div>
-        <div class="tool card wide">
-          <div class="tool-head"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3>Shipping it</h3></div>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>React</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg>Next.js</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .0387C5.3729.0384.0003 5.3931 0 11.9988c-.001 6.6066 5.372 11.9628 12 11.9625 6.628.0003 12.001-5.3559 12-11.9625-.0003-6.6057-5.3729-11.9604-12-11.96m-.829 5.4153h7.55l-7.5805 5.3284h5.1828L5.279 18.5436q2.9466-6.5444 5.892-13.0896"/></svg>FastAPI</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg>Docker</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></svg>AWS</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>Git</span><span class="chip">CI/CD</span><span class="chip">Supabase</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="work">
-    <div class="wrap">
-      <h2 class="title"><span class="idx">03</span>My <b>work</b></h2>
-      <div class="work">
-        <article class="proj card featured">
-          <span class="num">01</span>
-          <span class="cat">Research · Recommender systems</span>
-          <h3>Conversational ads that aren't pushy</h3>
-          <p>An LLM agent chats with simulated shoppers and can only surface a product by calling a search tool, so suggestions stay rare and its reasoning shows exactly why it looked.</p>
-          <span class="result">UMass Amherst research</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip">Qwen3</span><span class="chip">vLLM</span><span class="chip">Tool calling</span><span class="chip">BM25 + dense</span></div>
-        </article>
-        <article class="proj card featured">
-          <span class="num">02</span>
-          <span class="cat">Research · Fairness</span>
-          <h3>Do LLMs share fairly?</h3>
-          <p>Controlled experiments test whether language models allocate quality and resources differently across demographic groups, scored with power-mean fairness metrics.</p>
-          <span class="result">Manuscript: "Is Your LLM a Capitalist?"</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip">Eval harnesses</span><span class="chip">Ablations</span><span class="chip">Fairness metrics</span></div>
-        </article>
-        <article class="proj card">
-          <span class="num">03</span>
-          <span class="cat">Multi-agent RAG · Legal QA</span>
-          <h3>CASE</h3>
-          <p>Analyst, Advocate and Jury agents argue over conflicting evidence before answering Bar Exam questions.</p>
-          <span class="result">Beat single-path RAG by 11%</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.0988 5.9175C2.7359 5.9175 0 8.6462 0 12s2.736 6.0825 6.0988 6.0825h11.8024C21.2641 18.0825 24 15.3538 24 12s-2.736-6.0825-6.0988-6.0825ZM5.9774 7.851c.493.0124 1.02.2496 1.273.6228.3673.4592.4778 1.0668.8944 1.4932.5604.6118 1.199 1.1505 1.7161 1.802.4892.5954.8386 1.2937 1.1436 1.9975.1244.2335.1257.5202.31.7197.0908.1204.5346.4483.4383.5645.0555.1204.4702.286.3263.4027-.1944.04-.4129.0476-.5616-.1074-.0549.126-.183.0596-.2819.0432a4 4 0 0 0-.025.0736c-.3288.0219-.5754-.3126-.732-.565-.3111-.168-.6642-.2702-.982-.446-.0182.2895.0452.6485-.231.8353-.014.5565.8436.0656.9222.4804-.061.0067-.1286-.0095-.1774.0373-.2239.2172-.4805-.1645-.7385-.007-.3464.174-.3808.3161-.8096.352-.0237-.0359-.0143-.0592.0059-.0811.1207-.1399.1295-.3046.3356-.3643-.2122-.0334-.3899.0833-.5686.1757-.2323.095-.2304-.2141-.5878.0164-.0396-.0322-.0208-.0615.0018-.0864.0908-.1107.2102-.127.345-.1208-.663-.3686-.9751.4507-1.2813.0432-.092.0243-.1265.1068-.1845.1652-.05-.0548-.0123-.1212-.0099-.1857-.0598-.028-.1356-.041-.1179-.1366-.1171-.0395-.1988.0295-.286.0952-.0787-.0608.0532-.1492.0776-.2125.0702-.1216.23-.025.3111-.1126.2306-.1308.552.0814.8155.0455.203.0255.4544-.1825.3526-.39-.2171-.2767-.179-.6386-.1839-.9695-.0268-.1929-.491-.4382-.6252-.6462-.1659-.1873-.295-.4047-.4243-.6182-.4666-.9008-.3198-2.0584-.9077-2.8947-.266.1466-.6125.0774-.8418-.119-.1238.1125-.1292.2598-.139.4161-.297-.2962-.2593-.8559-.022-1.1855.0969-.1302.2127-.2373.342-.3316.0292-.0213.0391-.0419.0385-.0747.1174-.5267.5764-.7391 1.0694-.7267m12.4071.46c.5575 0 1.0806.2159 1.474.6082s.61.9145.61 1.4704c0 .556-.2167 1.078-.61 1.4698v.0006l-.902.8995a2.08 2.08 0 0 1-.8597.5166l-.0164.0047-.0058.0164a2.05 2.05 0 0 1-.474.7308l-.9018.8995c-.3934.3924-.917.6083-1.4745.6083s-1.0806-.216-1.474-.6083c-.813-.8107-.813-2.1294 0-2.9402l.9019-.8995a2.056 2.056 0 0 1 .858-.5143l.017-.0053.0058-.0158a2.07 2.07 0 0 1 .4752-.7337l.9018-.8995c.3934-.3924.9171-.6083 1.4745-.6083zm0 .8965a1.18 1.18 0 0 0-.8388.3462l-.9018.8995a1.181 1.181 0 0 0-.3427.9252l.0053.0572c.0323.2652.149.5044.3374.6917.13.1296.2733.2114.4471.2686a.9.9 0 0 1 .014.1582.884.884 0 0 1-.2609.6304l-.0554.0554c-.3013-.1028-.5525-.253-.7794-.4792a2.06 2.06 0 0 1-.5761-1.0968l-.0099-.0578-.0461.0368a1.1 1.1 0 0 0-.0876.0794l-.9024.8995c-.4623.461-.4623 1.212 0 1.673.2311.2305.535.346.8394.3461.3043 0 .6077-.1156.8388-.3462l.9019-.8995c.4623-.461.4623-1.2113 0-1.673a1.17 1.17 0 0 0-.4367-.2749 1 1 0 0 1-.014-.1611c0-.2591.1023-.505.2901-.6923.3019.1028.57.2694.7962.495.3007.2999.4994.679.5756 1.0968l.0105.0578.0455-.0373a1.1 1.1 0 0 0 .0887-.0794l.902-.8996c.4622-.461.4628-1.2124 0-1.6735a1.18 1.18 0 0 0-.8395-.3462Zm-9.973 5.1567-.0006.0006c-.0793.3078-.1048.8318-.506.847-.033.1776.1228.2445.2655.1874.141-.0645.2081.0508.2557.1657.2177.0317.5394-.0725.5516-.3298-.325-.1867-.4253-.5418-.5662-.8709"/></svg>LangChain</span><span class="chip">FAISS</span><span class="chip">Pyserini</span><span class="chip">Llama-3.3-70B</span></div>
-        </article>
-        <article class="proj card">
-          <span class="num">04</span>
-          <span class="cat">Clinical AI · LLM + RAG</span>
-          <h3>ChatECG</h3>
-          <p>A real-time Q&amp;A assistant that helps clinicians understand ECG model outputs, distributed through the Philips ECG AI Marketplace.</p>
-          <span class="result">Shipped to US hospital networks</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Tool integrations</span></div>
-        </article>
-        <article class="proj card">
-          <span class="num">05</span>
-          <span class="cat">Full-stack AI app</span>
-          <h3>ScrollShield</h3>
-          <p>An end-to-end product with LLM-powered features, its own evaluation harness and CI/CD, tested with real users.</p>
-          <span class="result">+34% across 18 real users</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>React</span><span class="chip">Supabase</span><span class="chip">pgvector</span></div>
-        </article>
-        <article class="proj card">
-          <span class="num">06</span>
-          <span class="cat">Medical imaging · Thesis</span>
-          <h3>PathoLens</h3>
-          <p>CNN and multiple-instance-learning ensembles that classify ovarian cancer subtypes from pathology slides with scarce labels.</p>
-          <span class="result">Top 3 of 12 approaches</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.005 0L4.952 7.053a9.865 9.865 0 000 14.022 9.866 9.866 0 0014.022 0c3.984-3.9 3.986-10.205.085-14.023l-1.744 1.743c2.904 2.905 2.904 7.634 0 10.538s-7.634 2.904-10.538 0-2.904-7.634 0-10.538l4.647-4.646.582-.665zm3.568 3.899a1.327 1.327 0 00-1.327 1.327 1.327 1.327 0 001.327 1.328A1.327 1.327 0 0016.9 5.226 1.327 1.327 0 0015.573 3.9z"/></svg>PyTorch</span><span class="chip">CNNs</span><span class="chip">MIL</span></div>
-        </article>
-        <article class="proj card">
-          <span class="num">07</span>
-          <span class="cat">Graph ML · Drug discovery</span>
-          <h3>KA-GNNs</h3>
-          <p>Reproduced and extended Kolmogorov-Arnold graph networks for molecular property prediction, with ablations on sample efficiency.</p>
-          <span class="result">MoleculeNet benchmarks</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip">PyTorch Geometric</span><span class="chip">RDKit</span><span class="chip">GNNExplainer</span></div>
-        </article>
-        <article class="proj card">
-          <span class="num">08</span>
-          <span class="cat">Robotics · Edge AI</span>
-          <h3>WasteWing</h3>
-          <p>An autonomous Raspberry Pi drone that detects objects and plans its own inspection routes, developed in Gazebo.</p>
-          <span class="result">40% shorter inspection routes</span>
-          <span class="applied">Tech applied</span>
-          <div class="chips"><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8992.8525C8.735.8525 6.17 3.4175 6.17 6.5817c0 2.102 1.1321 3.9398 2.8198 4.9366l1.6412-2.7849c.0411-.0699.0176-.1593-.0495-.2048-.6233-.4227-1.0328-1.137-1.0328-1.947 0-1.298 1.0524-2.3504 2.3505-2.3504 1.2981 0 2.3505 1.0524 2.3505 2.3505 0 .8098-.4095 1.5242-1.0328 1.947-.0671.0454-.0907.1348-.0495.2047l1.6414 2.785c1.6878-.9969 2.8199-2.8346 2.8199-4.9367 0-3.1642-2.5653-5.7292-5.7295-5.7292zm-6.17 10.8366C2.565 11.6891 0 14.2541 0 17.4183c0 3.1642 2.565 5.7292 5.7292 5.7292 3.1798 0 5.8074-2.6995 5.7275-5.8762H8.2313c-.0847 0-.1513.0717-.1519.1564-.0082 1.266-1.0644 2.3411-2.3502 2.3411-1.2981 0-2.3505-1.0524-2.3505-2.3505 0-1.2982 1.0524-2.3505 2.3505-2.3505.34 0 .663.0724.9547.2022.0713.0318.1566.0077.1962-.0595l1.6464-2.7935c-.8273-.4636-1.7815-.7279-2.7973-.7279zm15.4424.7614l-1.6366 2.7878c-.041.07-.0172.1594.05.2048.624.4217 1.0348 1.1354 1.0363 1.9452.0022 1.298-1.0483 2.352-2.3465 2.3542-1.298.0023-2.3523-1.0482-2.3545-2.3462-.0015-.8098.4068-1.5248 1.0294-1.9486.067-.0457.0905-.1353.0492-.2051l-1.6464-2.7818c-1.6859.9998-2.8146 2.8394-2.811 4.9415.0056 3.1641 2.575 5.7248 5.7393 5.7192 3.1641-.0054 5.7246-2.575 5.7192-5.7392-.0037-2.1022-1.139-3.938-2.8284-4.9318z"/></svg>OpenCV</span><span class="chip">CNNs</span><span class="chip">Gazebo</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="timeline">
-    <div class="wrap">
-      <h2 class="title"><span class="idx">04</span>My <b>timeline</b></h2>
-      <div class="timeline">
-        <div class="col">
-          <h3>Experience</h3>
-          <ol class="tl">
-            <li><span class="when">Current</span><b>AI Engineer Intern</b><span class="org">Aosenuma · Remote</span>
-              <ul><li>Building qa-hub to monitor and evaluate production LLM outputs for ESG consulting.</li><li>Designing eval harnesses, label sets and regression suites.</li></ul></li>
-            <li><span class="when">Clinical AI</span><b>Data Scientist</b><span class="org">Anumana (nference)</span>
-              <ul><li>ECG models for cardiac function, part of an FDA 510(k)-cleared algorithm.</li><li>Shipped ChatECG; helped build a digital twin of the heart from TEE and CT.</li></ul>
-              <div class="tags"><span class="tag">150K+ records</span><span class="tag">60+ hospitals</span><span class="tag">+28% adoption</span></div></li>
-            <li><span class="when">Manufacturing AI</span><b>AI Intern</b><span class="org">BMW India · Chennai</span>
-              <ul><li>OCR system for VIN recognition and quality checks, built in 10 weeks.</li><li>SAP and Atlassian dashboards that automated weekly reporting.</li></ul>
-              <div class="tags"><span class="tag">−30% complaints</span><span class="tag">$200K+/yr saved</span><span class="tag">~35 hrs/week</span></div></li>
-            <li><span class="when">Part-time</span><b>Technical Head</b><span class="org">Hotfut Sports · Remote</span>
-              <ul><li>Event site, registration platform and player database on MERN for 3,000+ participants.</li></ul></li>
-            <li><span class="when">Sports ML</span><b>ML Intern</b><span class="org">Mad About Sports · Chennai</span>
-              <ul><li>Cricket shot classification from video with pose estimation and LSTMs, 87% accuracy.</li></ul></li>
-          </ol>
-        </div>
-        <div class="col">
-          <h3>Recognition &amp; community</h3>
-          <div class="awards card">
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg><div><b>1st, Qualcomm Edge AI Hackathon</b><br><span>Gesture-controlled gaming on edge hardware</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg><div><b>1st, MIC 24hr Hackathon</b><br><span>Out of 50+ teams</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg><div><b>Amazon ML School Fellow</b><br><span>Competitive ML program</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg><div><b>Finalist, Smart India Hackathon</b><br><span>AI + blockchain case management</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7M16 4a3.5 3.5 0 0 1 0 7M22 21c0-3.2-2-5.9-5-6.7"/></svg><div><b>Chair, CSWomen</b><br><span>UMass Amherst</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg><div><b>National speaker, Girl Up</b><br><span>Women in STEM</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><div><b>Volunteer teacher, e-Vidhyaloka</b><br><span>9 months, remote villages in India</span></div></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7M16 4a3.5 3.5 0 0 1 0 7M22 21c0-3.2-2-5.9-5-6.7"/></svg><div><b>Zero Bugs Club, VIT</b><br><span>Workshops for 1,000+ students</span></div></li>
-            </ul>
+      <div class="sec-head"><h2 class="eyebrow">Experience</h2><p class="sub">Swipe or use the arrows</p></div>
+      <div class="track" id="track">
+        <article class="job">
+          <div class="job-top">
+            <div><h4>AI Engineer Intern</h4><p class="co">Aosenuma</p></div>
+            <span class="mono" aria-hidden="true">Ao</span>
           </div>
-        </div>
+          <div class="stack"><span>Python</span><span>Claude API</span><span>OpenAI API</span><span>PostgreSQL</span><span>RAG</span></div>
+          <p class="where">Remote · Current</p>
+          <ul>
+            <li>Building qa-hub, an observability platform that monitors and evaluates production LLM outputs for ESG and sustainability consulting.</li>
+            <li>Designing evaluation harnesses, label sets and regression suites, and catching silent data-quality issues.</li>
+            <li>Turning technical findings into clear recommendations for non-technical consultants.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-top">
+            <div><h4>Data Scientist</h4><p class="co">Anumana (nference)</p></div>
+            <span class="mono" aria-hidden="true">An</span>
+          </div>
+          <div class="stack"><span>PyTorch</span><span>Self-supervised learning</span><span>SHAP / LIME</span><span>LLMs + RAG</span></div>
+          <p class="where">Clinical AI · Cardiology</p>
+          <ul>
+            <li>Built ECG models for cardiac function prediction on 150K+ patient records, contributing to an FDA 510(k)-cleared algorithm deployed across 60+ US hospitals.</li>
+            <li>Shipped ChatECG, an LLM + RAG assistant for real-time clinical Q&amp;A, distributed through the Philips ECG AI Marketplace.</li>
+            <li>Helped build surgical software that creates a digital twin of the heart from TEE and CT data.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-top">
+            <div><h4>AI Intern</h4><p class="co">BMW India</p></div>
+            <span class="mono" aria-hidden="true">BM</span>
+          </div>
+          <div class="stack"><span>CNNs</span><span>OCR</span><span>SAP APIs</span><span>Dashboards</span></div>
+          <p class="where">Chennai, India</p>
+          <ul>
+            <li>Built a computer-vision OCR system for VIN recognition and quality checks in 10 weeks, cutting quality complaints by 30% and saving an estimated $200K+ a year in rework.</li>
+            <li>Built real-time dashboards on SAP and Atlassian APIs that replaced about 35 hours a week of manual reporting.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-top">
+            <div><h4>Technical Head</h4><p class="co">Hotfut Sports</p></div>
+            <span class="mono" aria-hidden="true">Hf</span>
+          </div>
+          <div class="stack"><span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span></div>
+          <p class="where">Remote · Part-time</p>
+          <ul>
+            <li>Built and ran the event website, registration platform and player-performance database for 3,000+ participants.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-top">
+            <div><h4>ML Intern</h4><p class="co">Mad About Sports</p></div>
+            <span class="mono" aria-hidden="true">MS</span>
+          </div>
+          <div class="stack"><span>LSTMs</span><span>Pose estimation</span><span>Video</span></div>
+          <p class="where">Chennai, India</p>
+          <ul>
+            <li>Taught a model to recognize cricket shots from video, with 87% accuracy across 8 shot types.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="carousel-ctl">
+        <button type="button" id="prev" aria-label="Previous role"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <div class="dots" id="dots"></div>
+        <button type="button" id="next" aria-label="Next role"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="connect">
+  <section class="sec" id="skills">
     <div class="wrap">
-      <div class="connect card">
-        <span class="label">05 · Contact</span>
-        <h2>Let's <b>connect</b></h2>
-        <p>About AI, the latest in tech, or where the industry is heading.</p>
-        <div class="mailrow">
-          <span class="mail" id="email">dhameshahelly@gmail.com</span>
-          <button type="button" class="btn fill" id="copy">Copy email</button>
-        </div>
-        <div class="cta">
-          <a class="btn ghost" href="https://www.linkedin.com/in/helly-dhamesha/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn ghost" href="https://github.com/helly-22" target="_blank" rel="noopener">GitHub</a>
-        </div>
+      <div class="sec-head"><h2 class="eyebrow">Skills</h2><p class="sub">Hover over a skill to see where I've used it</p></div>
+      <div class="skills">
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#3776AB" d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></span><span class="name">Python</span></span><span class="used">Everywhere, every day</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EE4C2C" d="M12.005 0L4.952 7.053a9.865 9.865 0 000 14.022 9.866 9.866 0 0014.022 0c3.984-3.9 3.986-10.205.085-14.023l-1.744 1.743c2.904 2.905 2.904 7.634 0 10.538s-7.634 2.904-10.538 0-2.904-7.634 0-10.538l4.647-4.646.582-.665zm3.568 3.899a1.327 1.327 0 00-1.327 1.327 1.327 1.327 0 001.327 1.328A1.327 1.327 0 0016.9 5.226 1.327 1.327 0 0015.573 3.9z"/></svg></span><span class="name">PyTorch</span></span><span class="used">Anumana, PathoLens, KA-GNNs</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#D97757" d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#111214" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span><span class="name">Claude &amp; OpenAI APIs</span></span><span class="used">Aosenuma, CASE, ScrollShield</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1C3C3C" d="M6.0988 5.9175C2.7359 5.9175 0 8.6462 0 12s2.736 6.0825 6.0988 6.0825h11.8024C21.2641 18.0825 24 15.3538 24 12s-2.736-6.0825-6.0988-6.0825ZM5.9774 7.851c.493.0124 1.02.2496 1.273.6228.3673.4592.4778 1.0668.8944 1.4932.5604.6118 1.199 1.1505 1.7161 1.802.4892.5954.8386 1.2937 1.1436 1.9975.1244.2335.1257.5202.31.7197.0908.1204.5346.4483.4383.5645.0555.1204.4702.286.3263.4027-.1944.04-.4129.0476-.5616-.1074-.0549.126-.183.0596-.2819.0432a4 4 0 0 0-.025.0736c-.3288.0219-.5754-.3126-.732-.565-.3111-.168-.6642-.2702-.982-.446-.0182.2895.0452.6485-.231.8353-.014.5565.8436.0656.9222.4804-.061.0067-.1286-.0095-.1774.0373-.2239.2172-.4805-.1645-.7385-.007-.3464.174-.3808.3161-.8096.352-.0237-.0359-.0143-.0592.0059-.0811.1207-.1399.1295-.3046.3356-.3643-.2122-.0334-.3899.0833-.5686.1757-.2323.095-.2304-.2141-.5878.0164-.0396-.0322-.0208-.0615.0018-.0864.0908-.1107.2102-.127.345-.1208-.663-.3686-.9751.4507-1.2813.0432-.092.0243-.1265.1068-.1845.1652-.05-.0548-.0123-.1212-.0099-.1857-.0598-.028-.1356-.041-.1179-.1366-.1171-.0395-.1988.0295-.286.0952-.0787-.0608.0532-.1492.0776-.2125.0702-.1216.23-.025.3111-.1126.2306-.1308.552.0814.8155.0455.203.0255.4544-.1825.3526-.39-.2171-.2767-.179-.6386-.1839-.9695-.0268-.1929-.491-.4382-.6252-.6462-.1659-.1873-.295-.4047-.4243-.6182-.4666-.9008-.3198-2.0584-.9077-2.8947-.266.1466-.6125.0774-.8418-.119-.1238.1125-.1292.2598-.139.4161-.297-.2962-.2593-.8559-.022-1.1855.0969-.1302.2127-.2373.342-.3316.0292-.0213.0391-.0419.0385-.0747.1174-.5267.5764-.7391 1.0694-.7267m12.4071.46c.5575 0 1.0806.2159 1.474.6082s.61.9145.61 1.4704c0 .556-.2167 1.078-.61 1.4698v.0006l-.902.8995a2.08 2.08 0 0 1-.8597.5166l-.0164.0047-.0058.0164a2.05 2.05 0 0 1-.474.7308l-.9018.8995c-.3934.3924-.917.6083-1.4745.6083s-1.0806-.216-1.474-.6083c-.813-.8107-.813-2.1294 0-2.9402l.9019-.8995a2.056 2.056 0 0 1 .858-.5143l.017-.0053.0058-.0158a2.07 2.07 0 0 1 .4752-.7337l.9018-.8995c.3934-.3924.9171-.6083 1.4745-.6083zm0 .8965a1.18 1.18 0 0 0-.8388.3462l-.9018.8995a1.181 1.181 0 0 0-.3427.9252l.0053.0572c.0323.2652.149.5044.3374.6917.13.1296.2733.2114.4471.2686a.9.9 0 0 1 .014.1582.884.884 0 0 1-.2609.6304l-.0554.0554c-.3013-.1028-.5525-.253-.7794-.4792a2.06 2.06 0 0 1-.5761-1.0968l-.0099-.0578-.0461.0368a1.1 1.1 0 0 0-.0876.0794l-.9024.8995c-.4623.461-.4623 1.212 0 1.673.2311.2305.535.346.8394.3461.3043 0 .6077-.1156.8388-.3462l.9019-.8995c.4623-.461.4623-1.2113 0-1.673a1.17 1.17 0 0 0-.4367-.2749 1 1 0 0 1-.014-.1611c0-.2591.1023-.505.2901-.6923.3019.1028.57.2694.7962.495.3007.2999.4994.679.5756 1.0968l.0105.0578.0455-.0373a1.1 1.1 0 0 0 .0887-.0794l.902-.8996c.4622-.461.4628-1.2124 0-1.6735a1.18 1.18 0 0 0-.8395-.3462Zm-9.973 5.1567-.0006.0006c-.0793.3078-.1048.8318-.506.847-.033.1776.1228.2445.2655.1874.141-.0645.2081.0508.2557.1657.2177.0317.5394-.0725.5516-.3298-.325-.1867-.4253-.5418-.5662-.8709"/></svg></span><span class="name">LangChain / LangGraph</span></span><span class="used">CASE multi-agent pipeline</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg wide" viewBox="0 0 48 26" aria-hidden="true"><rect x="2" y="3" width="14" height="19" rx="2" fill="#E1F2FA" stroke="#2F4F4F" stroke-width="1.6"/><path d="M5.5 9h7M5.5 13h7M5.5 17h4" stroke="#2F4F4F" stroke-width="1.6" stroke-linecap="round"/><path d="M19 12.5h7m-3-3 3 3-3 3" fill="none" stroke="#87CEEB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-5 4v-4h-1a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#2F4F4F"/><circle cx="33.5" cy="11" r="1.4" fill="#fff"/><circle cx="37.5" cy="11" r="1.4" fill="#fff"/><circle cx="41.5" cy="11" r="1.4" fill="#fff"/></svg></span><span class="name">RAG</span></span><span class="used">ChatECG, CASE, Aosenuma</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg wide" viewBox="0 0 48 26" aria-hidden="true"><rect x="4" y="2" width="34" height="9" rx="2" fill="#E1F2FA" stroke="#2F4F4F" stroke-width="1.6"/><rect x="4" y="15" width="34" height="9" rx="2" fill="#E1F2FA" stroke="#2F4F4F" stroke-width="1.6"/><circle cx="9" cy="6.5" r="1.5" fill="#2F4F4F"/><circle cx="9" cy="19.5" r="1.5" fill="#2F4F4F"/><path d="M14 6.5h12M14 19.5h12" stroke="#2F4F4F" stroke-width="1.6" stroke-linecap="round"/><path d="M45 3l-5 11h4l-3 10 7-13h-4l3-8z" fill="#87CEEB"/></svg></span><span class="name">vLLM</span></span><span class="used">Conversational ads research on Qwen3</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg wide" viewBox="0 0 48 26" aria-hidden="true"><g fill="#2F4F4F" opacity=".45"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="20" cy="4" r="2"/><circle cx="6" cy="22" r="2"/><circle cx="41" cy="20" r="2"/></g><circle cx="27" cy="12" r="2.4" fill="#87CEEB"/><circle cx="33" cy="9" r="2" fill="#2F4F4F"/><circle cx="31" cy="16" r="2" fill="#2F4F4F"/><circle cx="30" cy="12" r="8" fill="none" stroke="#2F4F4F" stroke-width="2"/><path d="M36 18l7 6" stroke="#2F4F4F" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="name">FAISS &amp; BM25</span></span><span class="used">Hybrid retrieval in CASE and ads research</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#5C3EE8" d="M11.8992.8525C8.735.8525 6.17 3.4175 6.17 6.5817c0 2.102 1.1321 3.9398 2.8198 4.9366l1.6412-2.7849c.0411-.0699.0176-.1593-.0495-.2048-.6233-.4227-1.0328-1.137-1.0328-1.947 0-1.298 1.0524-2.3504 2.3505-2.3504 1.2981 0 2.3505 1.0524 2.3505 2.3505 0 .8098-.4095 1.5242-1.0328 1.947-.0671.0454-.0907.1348-.0495.2047l1.6414 2.785c1.6878-.9969 2.8199-2.8346 2.8199-4.9367 0-3.1642-2.5653-5.7292-5.7295-5.7292zm-6.17 10.8366C2.565 11.6891 0 14.2541 0 17.4183c0 3.1642 2.565 5.7292 5.7292 5.7292 3.1798 0 5.8074-2.6995 5.7275-5.8762H8.2313c-.0847 0-.1513.0717-.1519.1564-.0082 1.266-1.0644 2.3411-2.3502 2.3411-1.2981 0-2.3505-1.0524-2.3505-2.3505 0-1.2982 1.0524-2.3505 2.3505-2.3505.34 0 .663.0724.9547.2022.0713.0318.1566.0077.1962-.0595l1.6464-2.7935c-.8273-.4636-1.7815-.7279-2.7973-.7279zm15.4424.7614l-1.6366 2.7878c-.041.07-.0172.1594.05.2048.624.4217 1.0348 1.1354 1.0363 1.9452.0022 1.298-1.0483 2.352-2.3465 2.3542-1.298.0023-2.3523-1.0482-2.3545-2.3462-.0015-.8098.4068-1.5248 1.0294-1.9486.067-.0457.0905-.1353.0492-.2051l-1.6464-2.7818c-1.6859.9998-2.8146 2.8394-2.811 4.9415.0056 3.1641 2.575 5.7248 5.7393 5.7192 3.1641-.0054 5.7246-2.575 5.7192-5.7392-.0037-2.1022-1.139-3.938-2.8284-4.9318z"/></svg></span><span class="name">Computer Vision</span></span><span class="used">BMW, WasteWing, Qualcomm hackathon</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg wide" viewBox="0 0 48 26" aria-hidden="true"><g stroke="#2F4F4F" stroke-width="1.6"><path d="M8 8L24 4M24 4L40 9M8 8L15 21M24 4L15 21M24 4L33 21M40 9L33 21M15 21L33 21"/></g><circle cx="8" cy="8" r="3.4" fill="#E1F2FA" stroke="#2F4F4F" stroke-width="1.6"/><circle cx="24" cy="4" r="3.4" fill="#87CEEB"/><circle cx="40" cy="9" r="3.4" fill="#E1F2FA" stroke="#2F4F4F" stroke-width="1.6"/><circle cx="15" cy="21" r="3.4" fill="#E1F2FA" stroke="#2F4F4F" stroke-width="1.6"/><circle cx="33" cy="21" r="3.4" fill="#2F4F4F"/></svg></span><span class="name">GNNs</span></span><span class="used">KA-GNNs for molecules</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4169E1" d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg></span><span class="name">SQL &amp; Postgres</span></span><span class="used">Aosenuma, ScrollShield</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#3178C6" d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#149ECA" d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg></span><span class="name">TypeScript &amp; React</span></span><span class="used">ScrollShield, Hotfut</span></button>
+        <button type="button" class="skill"><span class="face"><span class="logos"><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#2496ED" d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg><svg class="lg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#232F3E" d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></svg></span><span class="name">Docker &amp; AWS</span></span><span class="used">Shipping models and apps</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec projects-band" id="projects">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="eyebrow">Projects</h2></div>
+      <div class="proj-list">
+        <article class="proj">
+          <div class="fig">
+            <span class="cap">How it works</span>
+            <div class="pipe"><span class="a">User message</span><i></i><span class="b">LLM agent</span><i></i><span class="c">search_ads</span><i></i><span class="d">Gentle suggestion</span></div>
+            <p class="note">The agent has to decide to search before it can suggest anything.</p>
+          </div>
+          <div class="proj-text">
+            <h4><span class="u">Research:</span> Conversational ads that aren't pushy</h4>
+            <p>Can an AI assistant recommend a product the way a helpful friend would? I'm building an agent that chats with simulated shoppers and can only surface a product by calling a search tool, so suggestions stay rare and its reasoning shows exactly why it looked.</p>
+            <p class="result">UMass Amherst · Qwen3 on vLLM · BM25 + dense retrieval</p>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="fig">
+            <span class="cap">How it works</span>
+            <div class="pipe"><span class="a">Scenario</span><i></i><span class="b">LLM decides</span><i></i><span class="c">Compare across groups</span><i></i><span class="d">Fairness score</span></div>
+            <p class="note">Manuscript in preparation: "Is Your LLM a Capitalist?"</p>
+          </div>
+          <div class="proj-text">
+            <h4><span class="u">Research:</span> Do LLMs share fairly?</h4>
+            <p>Controlled experiments that test whether language models hand out quality and resources differently across demographic groups, scored with power-mean fairness metrics.</p>
+            <p class="result">UMass Amherst · Distributive justice</p>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="fig">
+            <span class="cap">How it works</span>
+            <div class="pipe"><span class="a">Legal question</span><i></i><span class="c">BM25 + FAISS</span><i></i><span class="b">Analyst</span><i></i><span class="b">Advocate</span><i></i><span class="b">Jury</span><i></i><span class="d">Answer</span></div>
+            <p class="note">Agents argue over conflicting evidence before answering.</p>
+          </div>
+          <div class="proj-text">
+            <h4><span class="u">CASE:</span> Agents that debate the evidence</h4>
+            <p>A multi-agent legal RAG system for Bar Exam questions. Three agents analyze, argue and judge retrieved evidence instead of trusting the first passage they find.</p>
+            <p class="result">Beat single-path RAG by 11%</p>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="fig">
+            <span class="cap">How it works</span>
+            <div class="pipe"><span class="a">Slide</span><i></i><span class="c">Patches</span><i></i><span class="b">CNN + MIL ensemble</span><i></i><span class="d">Cancer subtype</span></div>
+            <p class="note">Undergraduate thesis.</p>
+          </div>
+          <div class="proj-text">
+            <h4><span class="u">PathoLens:</span> Reading pathology slides</h4>
+            <p>Classifies ovarian cancer subtypes from histopathology slides, despite scarce labels and very uneven classes.</p>
+            <p class="result">Top 3 of 12 competing approaches</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="more">
+        <div class="mini"><b>ScrollShield</b><span>Full-stack app with LLM features and its own eval harness.</span><em>+34% across 18 real users</em></div>
+        <div class="mini"><b>KA-GNNs</b><span>Kolmogorov-Arnold graph networks for molecular property prediction.</span><em>MoleculeNet benchmarks</em></div>
+        <div class="mini"><b>Gesture gaming</b><span>A game you play with hand gestures on edge hardware.</span><em>1st place, Qualcomm Edge AI Hackathon</em></div>
+        <div class="mini"><b>WasteWing</b><span>Autonomous inspection drone on a Raspberry Pi.</span><em>40% shorter routes</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="beyond">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="eyebrow">Community</h2></div>
+      <div class="otc">
+        <div><b>Chair, CSWomen</b><span>Graduate women in CS at UMass Amherst</span></div>
+        <div><b>National speaker, Girl Up</b><span>Women in STEM and mentorship circles</span></div>
+        <div><b>Volunteer teacher, e-Vidhyaloka</b><span>9 months teaching kids in remote villages</span></div>
+        <div><b>Amazon ML School Fellow</b><span>Competitive ML program</span></div>
+        <div><b>Zero Bugs Club, VIT</b><span>Workshops for 1,000+ students</span></div>
+        <div><b>Co-founder, KryptoKards</b><span>An early NFT startup</span></div>
+        <div><b>Hackathons</b><span>1st at Qualcomm Edge AI and MIC 24hr; SIH finalist</span></div>
+        <div><b>Open source</b><span>GirlScript Summer of Code &amp; Hacktoberfest</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap contact">
+      <h2 class="eyebrow">Contact</h2>
+      <h3>I'd love to hear from you. <span class="u">Let's talk.</span></h3>
+      <p class="hand">about AI, the latest in tech, or where the industry is heading</p>
+      <div class="lines">
+        <div class="line"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 6.25L2 5.8zM2 8.15V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.15l-9.47 5.92a1 1 0 0 1-1.06 0z"/></svg><span class="email" id="email">dhameshahelly@gmail.com</span><button type="button" class="copy" id="copy">Copy</button></div>
+        <div class="line"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Amherst, Massachusetts</span></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap"><span>© 2026 Helly Dhamesha</span><span>Amherst, Massachusetts</span></div>
-</footer>
+<footer>© 2026 Helly Dhamesha</footer>
 
 <script>
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // typing line: slow, with long pauses
-  const typed = document.getElementById('typed');
+  // typewriter: slow, with long pauses so every phrase is readable
+  const el = document.getElementById('typed');
   const phrases = ["Hi, I'm Helly", "I build LLM agents", "I study fair AI", "I write & I read", "I bake, too"];
   if (!reduced) {
     let p = 0, i = phrases[0].length, deleting = true;
     const tick = () => {
-      const w = phrases[p];
+      const word = phrases[p];
       if (deleting) {
-        i--; typed.textContent = w.slice(0, i);
+        i--; el.textContent = word.slice(0, i);
         if (i === 0) { deleting = false; p = (p + 1) % phrases.length; setTimeout(tick, 350); }
         else setTimeout(tick, 40);
       } else {
-        i++; typed.textContent = w.slice(0, i);
-        if (i === w.length) { deleting = true; setTimeout(tick, p === 0 ? 4500 : 3000); }
+        i++; el.textContent = word.slice(0, i);
+        if (i === word.length) { deleting = true; setTimeout(tick, p === 0 ? 4500 : 3000); }
         else setTimeout(tick, 95);
       }
     };
     setTimeout(tick, 4000);
   }
 
-  // drifting node graph behind the hero
-  const cv = document.getElementById('net');
-  const ctx = cv.getContext('2d');
-  const colors = ['#ADD8E6', '#87CEEB', '#ADD8E6', '#2F4F4F'];
-  let W = 0, H = 0, nodes = [], visible = true;
-  const resize = () => {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    W = cv.clientWidth; H = cv.clientHeight;
-    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.round(Math.min(70, W * H / 16000));
-    nodes = Array.from({ length: n }, (_, k) => ({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
-      r: 1.6 + Math.random() * 2.2, c: k % 9 === 0 ? colors[3] : colors[k % 3]
-    }));
+  // experience carousel
+  const track = document.getElementById('track');
+  const cards = [...track.children];
+  const dots = document.getElementById('dots');
+  cards.forEach(() => dots.appendChild(document.createElement('i')));
+  const current = () => {
+    const mid = track.scrollLeft + track.clientWidth / 2;
+    let best = 0, dist = Infinity;
+    cards.forEach((c, k) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < dist) { dist = d; best = k; } });
+    return best;
   };
-  const draw = () => {
-    ctx.clearRect(0, 0, W, H);
-    for (let a = 0; a < nodes.length; a++) {
-      for (let b = a + 1; b < nodes.length; b++) {
-        const dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y, d = Math.hypot(dx, dy);
-        if (d < 150) { ctx.strokeStyle = `rgba(47,79,79,${(1 - d / 150) * .12})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(nodes[a].x, nodes[a].y); ctx.lineTo(nodes[b].x, nodes[b].y); ctx.stroke(); }
-      }
-    }
-    for (const n of nodes) { ctx.fillStyle = n.c; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); }
-  };
-  const step = () => {
-    if (visible) {
-      for (const n of nodes) { n.x += n.vx; n.y += n.vy; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1; }
-      draw();
-    }
-    requestAnimationFrame(step);
-  };
-  resize(); draw();
-  addEventListener('resize', () => { resize(); draw(); });
-  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(cv);
-  if (!reduced) requestAnimationFrame(step);
-
-  // scroll progress on the right rail
-  const bar = document.getElementById('progress');
-  const onScroll = () => { const max = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleY(${max > 0 ? scrollY / max : 0})`; };
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
-
-  // count-up stats when they first come into view
-  if (!reduced) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(({ isIntersecting, target }) => {
-        if (!isIntersecting) return;
-        io.unobserve(target);
-        const end = +target.dataset.count, suf = target.dataset.suffix, t0 = performance.now();
-        const run = (t) => { const k = Math.min(1, (t - t0) / 1100); target.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suf; if (k < 1) requestAnimationFrame(run); };
-        requestAnimationFrame(run);
-      });
-    }, { threshold: .6 });
-    document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
-  }
+  const paint = () => { const c = current(); [...dots.children].forEach((d, k) => d.classList.toggle('on', k === c)); };
+  const go = (k) => { const c = cards[Math.max(0, Math.min(cards.length - 1, k))]; track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2, behavior: reduced ? 'auto' : 'smooth' }); };
+  document.getElementById('prev').addEventListener('click', () => go(current() - 1));
+  document.getElementById('next').addEventListener('click', () => go(current() + 1));
+  track.addEventListener('scroll', () => requestAnimationFrame(paint), { passive: true });
+  paint();
 
   // copy email
   const btn = document.getElementById('copy');
   btn.addEventListener('click', () => {
     const email = document.getElementById('email');
-    const reset = (ms) => setTimeout(() => btn.textContent = 'Copy email', ms);
+    const reset = (t) => setTimeout(() => btn.textContent = 'Copy', t);
     const fallback = () => { const r = document.createRange(); r.selectNodeContents(email); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Press Ctrl+C'; reset(2200); };
     try { navigator.clipboard.writeText(email.textContent).then(() => { btn.textContent = 'Copied'; reset(1600); }, fallback); } catch (e) { fallback(); }
   });
