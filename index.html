@@ -106,7 +106,7 @@ body.past-hero .bar { transform: none; }
 body.past-hero .socials { opacity: 0; pointer-events: none; }
 .socials { transition: opacity .3s; }
 .bar .in { max-width: 1180px; margin-inline: auto; padding-inline: var(--gutter); height: 62px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; }
-.brand { font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+.brand { font-weight: 700; font-size: 1.15rem; text-decoration: none; white-space: nowrap; }
 .brand span { color: var(--teal); }
 .links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
 .links a { text-decoration: none; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; color: var(--muted); transition: color .2s; }
@@ -114,6 +114,7 @@ body.past-hero .socials { opacity: 0; pointer-events: none; }
 .bar-mail { justify-self: end; font-size: .85rem; color: var(--muted); text-decoration: none; padding: 5px 14px; border: 1px solid var(--faint); border-radius: 999px; transition: color .2s, border-color .2s; }
 .bar-mail:hover { color: var(--teal); border-color: var(--teal); }
 @media (max-width: 820px) { .links { display: none; } .bar .in { grid-template-columns: 1fr auto; } }
+@media (max-width: 480px) { .bar-mail { display: none; } }
 
 .rail { position: fixed; bottom: 0; z-index: 20; display: flex; flex-direction: column; align-items: center; gap: 18px; opacity: 0; pointer-events: none; transition: opacity .3s; }
 body.past-hero .rail { opacity: 1; pointer-events: auto; }
